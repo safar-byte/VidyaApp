@@ -1,20 +1,26 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Component } from 'react';
+import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
+//import { createStackNavigator } from 'react-navigation/native-stack';
+import Home from './screens/HomeScreen';
+import Acdamics from './screens/Acadamcs';
+
+
+// const Stack = createStackNavigator();
+
+// function MyStack() {
+//   return (
+//     <Stack.Navigator>
+//       <Stack.Screen name="Home" component={Home} />
+//       <Stack.Screen name="Acdms" component={Acdamics} />
+//     </Stack.Navigator>
+//   );
+// }
+
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Home />
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

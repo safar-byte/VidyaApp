@@ -1,18 +1,19 @@
-import { createStackNavigator } from "react-navigation-stack";
-//import { NavigationContainer } from '@react-navigation/native';
-import { createAppContainer } from "react-navigation";
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
 import Home from "../screens/HomeScreen";
 import Acdamics from "../screens/Acadamcs";
 
-const hmscreens = {
-    Home : {
-        screen: Home
-    },
-    Acadamics : {
-        screen: Acdamics
-    }
+const Stack = createNativeStackNavigator();
+
+function MainStackNavigator() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator  initialRouteName='Home'>
+        <Stack.Screen name="Home" component={Home}  />
+        <Stack.Screen name="Acade" component={Acdamics} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }
 
-const HomeStack = createStackNavigator(hmscreens);
-
-export default createAppContainer(HomeStack);
+export default MainStackNavigator;

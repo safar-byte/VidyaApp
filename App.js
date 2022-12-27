@@ -2,10 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import { Component } from 'react';
 import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
-//import { createStackNavigator } from 'react-navigation/native-stack';
-import Home from './screens/HomeScreen';
 import Acdamics from './screens/Acadamcs';
-
+import MainStackNavigator from './routes/HomeNavigation'
 
 // const Stack = createStackNavigator();
 
@@ -21,6 +19,6 @@ import Acdamics from './screens/Acadamcs';
 
 export default function App() {
   return (
-    <Home />
+    <MainStackNavigator/>
   );
 }

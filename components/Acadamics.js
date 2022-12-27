@@ -1,14 +1,15 @@
 import React from "react";
 import { Text,TouchableOpacity,View,StyleSheet } from "react-native";
 import { Ionicons } from '@expo/vector-icons'
-const NavigatetoAcd = props => { //ITHU ARIYAHTIYLLLA
-    props.navigation.naivgate('Acade')//
-}                                      //
-const  Acad = props => {            //
+import {useNavigation} from '@react-navigation/native';
+
+                                     
+function  Acad() {        
+    const navigation = useNavigation();
     return(
 
 
-        <TouchableOpacity onPress={() => NavigatetoAcd(props) }>
+        <TouchableOpacity onPress={() => navigation.navigate("Acade") }>
             <View style={{alignItems: "center"}}>
             <Ionicons name="school-outline" size={45}/>
                 <Text> Acadamics </Text>

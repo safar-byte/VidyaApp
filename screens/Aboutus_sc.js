@@ -1,10 +1,10 @@
 import React from "react";
 import { Text, View ,StyleSheet} from "react-native";
 
-const aboutus = () => {
+const Aboutus_sc = () => {
     return(
         <View style={styles.container}>
-            <Text>Admission</Text>
+            <Text>aboutus</Text>
         </View>
     );
 }
@@ -16,3 +16,4 @@ const aboutus = () => {
         alignItems: "center",
     }
  })
+ export default Aboutus_sc

@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, View ,StyleSheet} from "react-native";
 
-export default function Acdamics(){
+export default function Acadamics_sc(){
     return(
         <View style={styles.cont}>
             <Text>Acadamics</Text>

@@ -4,12 +4,10 @@ import { Ionicons } from '@expo/vector-icons'
 import {useNavigation} from '@react-navigation/native';
 
                                      
-function  Acad() {        
+export default function Acadamics_btn() {        
     const navigation = useNavigation();
     return(
-
-
-        <TouchableOpacity onPress={() => navigation.navigate("Acade") }>
+        <TouchableOpacity onPress={() => navigation.navigate("Acadamics_sc") }>
             <View style={{alignItems: "center"}}>
             <Ionicons name="school-outline" size={45}/>
                 <Text> Acadamics </Text>
@@ -17,4 +15,3 @@ function  Acad() {
         </TouchableOpacity>
     );
 }
-export default Acad;

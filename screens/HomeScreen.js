@@ -1,36 +1,44 @@
 import React from "react";
-import { Text,StyleSheet,View } from "react-native";
+import { Text, StyleSheet, View,TouchableOpacity } from "react-native";
 import Cntbtn from '../components/Cntact';
-import Acad from '../components/Acadamics';
-import Place from '../components/Placemnt';
-import Rsrc from '../components/Resource';
-import Admsn from '../components/Admssn';
-// import { createStackNavigator, CreateAppContainer } from "react-navigation";
+import Acadamics_btn from "../components/Acadamics_btn";
+import Placement_btn from '../components/Placement_btn';
+import Resource_btn from '../components/Resource_btn';
+import Admission_btn from "../components/Admission_btn";
+import { Ionicons } from '@expo/vector-icons'
+import { useNavigation } from "@react-navigation/native";
 
 export default function Home() {
+    const navigation = useNavigation();
     return (
         <View style={styles.container}>
             <View style={styles.tophalf}>
-
-                {/* news,aboutus,contacts */}
                 <Text style={styles.va}>Vidya Acadamy</Text>
                 <View style={styles.cntfiled}>
-                    <Cntbtn />
+                    <View style={styles.contact}>
+                        <TouchableOpacity onPress={() => { navigation.navigate("Contact_page") }}>
+                            <Ionicons name="call-outline" size={30} style={styles.gap} />
+                            <Text style={{ marginHorizontal: 15 }}>contact</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => {  navigation.navigate("NewsnEvent_page") }}>
+                            <Ionicons name="newspaper-outline" size={30} style={{ marginLeft: 65 }} />
+                            <Text style={{ marginHorizontal: 15, paddingHorizontal: 14 }}>News and events</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => navigation.navigate("Aboutus_page")}>
+                            <Ionicons name="information-circle-outline" size={30} style={styles.gap} />
+                            <Text style={{ paddingHorizontal: 12 }}>About Us</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
             </View>
             <View style={styles.bottomhalf}>
-                {/* placement,admission,acadamics,resource */}
                 <View style={styles.bh}>
-                    {/* acadamics */}
-                    <Acad />
-                    {/* placement */}
-                    <Place />
+                    <Acadamics_btn />
+                    <Placement_btn />
                 </View>
                 <View style={styles.bh}>
-                    {/* admission */}
-                    <Rsrc />
-                    {/* resource */}
-                    <Admsn />
+                    <Resource_btn />
+                    <Admission_btn />
                 </View>
             </View>
         </View>
@@ -74,4 +82,14 @@ const styles = StyleSheet.create({
         justifyContent: 'space-evenly',
         alignItems: 'center',
     },
+    contact: {
+        flexDirection: "row",
+        paddingHorizontal: 10,
+    },
+    gap: {
+        borderRadius: 40,
+        //backgroundColor: 'lime',
+        paddingHorizontal: 12,
+        marginHorizontal: 15,
+    }
 })

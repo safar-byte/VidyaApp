@@ -4,22 +4,20 @@ import { Ionicons } from '@expo/vector-icons'
 
 export default function Cntbtn(){
     return (
-        <TouchableOpacity>
             <View style={styles.contact}>
-               <View>
+               <TouchableOpacity>
                 <Ionicons name="call-outline" size={30} style={styles.gap}/>
                 <Text style={{marginHorizontal: 15}}>contact</Text>
-               </View>
-               <View>
+               </TouchableOpacity>
+               <TouchableOpacity>
                 <Ionicons name="newspaper-outline" size={30} style={{marginLeft:65}}/>
                 <Text style={{marginHorizontal: 15,paddingHorizontal: 14}}>News and events</Text>
-               </View>
-               <View>
+               </TouchableOpacity>
+               <TouchableOpacity>
                 <Ionicons name="information-circle-outline" size={30} style={styles.gap}/>
                 <Text style={{paddingHorizontal: 12}}>About Us</Text>
-               </View>
+               </TouchableOpacity>
             </View>
-        </TouchableOpacity>
     );
 }
 

@@ -1,15 +1,15 @@
 import React from "react";
 import { Text, View ,StyleSheet} from "react-native";
 
-const aboutus = () => {
+export default function Resource_sc(){
     return(
-        <View style={styles.container}>
-            <Text>aboutus</Text>
+        <View style={styles.cont}>
+            <Text>Resource</Text>
         </View>
     );
 }
- styles = StyleSheet.create({
-    container: {
+const styles = StyleSheet.create({
+    cont: {
         flex: 1,
         backgroundColor: '#E5BA73',
         justifyContent: "center",

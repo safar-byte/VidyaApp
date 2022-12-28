@@ -6,7 +6,7 @@ import Admission_sc from '../screens/Admission_sc';
 import Placement_sc from '../screens/Placement_sc';
 import Aboutus_sc from '../screens/Aboutus_sc';
 import Resource_sc from '../screens/Resource_sc';
-import Contact_sc from '../screens/contact_sc';
+import Contact_sc from '../screens/Contact_sc';
 import NewsandEvent_sc from '../screens/NewsandEvent_sc';
 import DarkTheme from '@react-navigation/native';
 const Stack = createNativeStackNavigator();

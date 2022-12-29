@@ -16,6 +16,9 @@ export default function Contact_sc() {
 
         Linking.openURL(phoneNumber);
     };
+    openEmail = () => {
+        Linking.openURL("mailto: mhdshameem321@gmail.com")
+    }
 
     return (
 
@@ -25,11 +28,15 @@ export default function Contact_sc() {
             <Text style={styles.add}>Address:</Text>
             <Text style={styles.ad}>Malakkal P.O., Kilimanoor, Thiruvananthapuram - 695 602, Kerala, India</Text>
             <Ionicons name="call-outline" size={20} style={styles.ga} />
-            <Text style={{ marginHorizontal: 15, bottom: 451, right: 130, fontSize: 17, fontWeight: 'bold' }}>Call</Text>
+            <Text style={{ marginHorizontal: 15, bottom: 390, right: 130, fontSize: 17, fontWeight: 'bold' }}>Call</Text>
             <TouchableOpacity onPress={this.makeCall} activeOpacity={0.7} style={styles.touchableButton} >
                 <Text style={styles.TextStyle}>9447540982</Text>
             </TouchableOpacity>
-        </View >
+            <Ionicons name="mail-open-outline" size={20} style={styles.ma} />
+            <Text style={{ marginHorizontal: 15, bottom: 380, right: 130, fontSize: 17, fontWeight: 'bold' }}>Mail</Text>
+            <TouchableOpacity onPress={() => openEmail()}>
+                < Text style={styles.tex}>mhdshameem321@gmail.com</Text>
+            </TouchableOpacity></View >
 
     );
 }
@@ -87,8 +94,8 @@ const styles = StyleSheet.create({
         width: '40%',
         padding: 2,
         backgroundColor: 'brown',
-        bottom: 440,
-        right: 95
+        bottom: 380,
+        right: 90
     },
     TextStyle: {
         color: '#fff',
@@ -96,8 +103,18 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     ga: {
-        bottom: 429,
+        bottom: 368,
         right: 160
+    },
+    ma: {
+        bottom: 358,
+        right: 160
+    },
+    tex: {
+        color: 'blue',
+        fontSize: 18,
+        bottom: 375,
+        right: 40
     }
 
 });

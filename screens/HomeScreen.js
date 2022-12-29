@@ -1,11 +1,10 @@
 import React from "react";
-import { Text, StyleSheet, View,TouchableOpacity } from "react-native";
-import Cntbtn from '../components/Cntact';
+import { Text, StyleSheet, View,TouchableOpacity,Image, ListViewComponent } from "react-native";
 import Acadamics_btn from "../components/Acadamics_btn";
 import Placement_btn from '../components/Placement_btn';
 import Resource_btn from '../components/Resource_btn';
 import Admission_btn from "../components/Admission_btn";
-import { Ionicons } from '@expo/vector-icons'
+import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from "@react-navigation/native";
 
 export default function Home() {
@@ -13,7 +12,14 @@ export default function Home() {
     return (
         <View style={styles.container}>
             <View style={styles.tophalf}>
-                <Text style={styles.va}>Vidya Acadamy</Text>
+                <View style={styles.img}>
+                <Image source={ require("../assets/vidyalogo.png") } />
+                </View>
+                <View style={{paddingBottom: 35,alignItems: "center"}}>
+                    <Text style={styles.text}>Vidya Acadamy</Text>
+                    <Text style={{color: "brown",fontWeight: "bold"}} >of</Text>
+                    <Text style={styles.text} >Science & Technology</Text>
+                </View>          
                 <View style={styles.cntfiled}>
                     <View style={styles.contact}>
                         <TouchableOpacity onPress={() => { navigation.navigate("Contact_page") }}>
@@ -55,7 +61,9 @@ const styles = StyleSheet.create({
         alignContent: 'center',
         alignItems: 'center',
         width: '100%',
-
+        //backgroundColor: 'lime',
+        paddingTop: 30,
+        justifyContent: "flex-end",
     },
     tophalf: {
         backgroundColor: '#E5BA73',
@@ -70,10 +78,10 @@ const styles = StyleSheet.create({
         marginRight: 0,
         backgroundColor: "#FAEAB1"
     },
-    va: {
-        fontSize: 34,
-        fontWeight: 'bold',
-        color: 'brown',
+    img: {
+        paddingBottom: 22,
+        width: '100%',
+        alignItems: "center",
     },
     bh: {
         flexDirection: 'row',
@@ -88,8 +96,12 @@ const styles = StyleSheet.create({
     },
     gap: {
         borderRadius: 40,
-        //backgroundColor: 'lime',
         paddingHorizontal: 12,
         marginHorizontal: 15,
+    },
+    text: {
+        color: "brown",
+        fontSize: 23,
+        fontWeight: 'bold',
     }
 })

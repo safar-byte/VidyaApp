@@ -40,24 +40,15 @@ LogBox.ignoreAllLogs();
 
 //trying to remove header
 const runFirst = `
-let selector = document.querySelector("div#header-text-nav-container")
-selector.style.display = "none"
+let headerrm = document.querySelector("div#header-text-nav-container")
+headerrm.style.display = "none"
+let newandevrm = document.querySelector("div#secondary")
+newandevrm.style.display = "none"
+let footrm = document.querySelector('footer')
+footrm.style.display = "none"
    
-      true; // note: this is required, or you'll sometimes get silent failures
+      true; 
     `;
-// const runFirst = `
-// let selector = document.querySelector("div#colophon")
-// selector.style.display = "none"
-   
-//       true; // note: this is required, or you'll sometimes get silent failures
-//     `;
-//     const runsecond = `
-// let selector = document.querySelector("div#colophon")
-// selector.style.display = "none"
-   
-//       true; // note: this is required, or you'll sometimes get silent failures
-//     `;
-
 return(
     <>
       

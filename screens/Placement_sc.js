@@ -1,11 +1,88 @@
-import React from "react";
-import { Text, View ,StyleSheet} from "react-native";
-
+import React,{useEffect,useRef,useState}  from "react";
+import { Text, View ,StyleSheet,ActivityIndicator,BackHandler,Platform,LogBox} from "react-native";
+import { WebView } from 'react-native-webview';
+import OfflineNotice from "../components/OfflineNotice";
+import NetInfo from "@react-native-community/netinfo";
+import SomethingWent from "../components/SomethingWent"; 
 export default function Placement_sc(){
-    return(
-        <View style={styles.container}>
-            <Text>Placement</Text>
-        </View>
+    
+const webViewRef = useRef(null);
+const onAndroidBackPress = () => {
+  if (webViewRef.current) {
+    webViewRef.current.goBack();
+    return true; // prevent default behavior (exit app)
+  }
+  return false;
+};
+
+
+
+useEffect(() => {
+    if (Platform.OS === 'android') {
+        BackHandler.addEventListener('hardwareBackPress', onAndroidBackPress);
+        return () => {
+      BackHandler.removeEventListener('hardwareBackPress', onAndroidBackPress);
+    };
+}
+}, []);
+const [isInternetReachable, setisInternetReachable] = useState(false);
+useEffect(()=>{
+    const unsubscribe = NetInfo.addEventListener(state => {
+        setisInternetReachable(state.isInternetReachable)
+    });
+    return () => unsubscribe();
+    
+},[])
+
+//remove all warn
+LogBox.ignoreAllLogs();
+
+
+//trying to remove header
+const runFirst = `
+let selector = document.querySelector("div#header-text-nav-container")
+selector.style.display = "none"
+   
+      true; // note: this is required, or you'll sometimes get silent failures
+    `;
+// const runFirst = `
+// let selector = document.querySelector("div#colophon")
+// selector.style.display = "none"
+   
+//       true; // note: this is required, or you'll sometimes get silent failures
+//     `;
+//     const runsecond = `
+// let selector = document.querySelector("div#colophon")
+// selector.style.display = "none"
+   
+//       true; // note: this is required, or you'll sometimes get silent failures
+//     `;
+
+return(
+    <>
+      
+        <View style =  {{flex: 1}}>
+        {isInternetReachable ?   
+        <WebView
+        ref={webViewRef}
+        style={styles.container}
+        source={{ uri: 'https://news.vidyaacademy.ac.in/tag/placements/'}}
+        startInLoadingState={true}
+        injectedJavaScript={runFirst}
+        renderError={()=>(<SomethingWent/>)}
+        renderLoading={() => (
+          <ActivityIndicator
+          color="black"
+          size="large"
+          style={styles.flexContainer}
+          />
+          )}
+          />:<OfflineNotice/>
+          
+        }
+      
+</View>
+      </>
     );
 }
 const styles = StyleSheet.create({
@@ -14,5 +91,11 @@ const styles = StyleSheet.create({
         backgroundColor: '#E5BA73',
         justifyContent: "center",
         alignItems: "center",
+    },
+    flexContainer:{
+        position: 'absolute',
+        height: '100%',
+        width: '100%'
     }
+    
  })

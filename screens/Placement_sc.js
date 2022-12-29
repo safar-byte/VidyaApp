@@ -46,7 +46,12 @@ let newandevrm = document.querySelector("div#secondary")
 newandevrm.style.display = "none"
 let footrm = document.querySelector('footer')
 footrm.style.display = "none"
-   
+let relarm = document.querySelector(".related-posts-wrapper")
+relarm.style.display = "none"
+let rmpre = document.querySelector(".previous")
+rmpre.style.display = "none"
+let rmnext = document.querySelector(".next")
+rmnext.style.display = "none"
       true; 
     `;
 return(

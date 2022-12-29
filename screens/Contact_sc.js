@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
     },
     btmhf: {
         padding: 10,
-        paddingTop: 20,
+        paddingTop: 5,
         width: "100%"
     },
 

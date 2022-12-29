@@ -1,10 +1,12 @@
 import React,{useEffect,useRef,useState}  from "react";
-import { Text, View ,StyleSheet,ActivityIndicator,BackHandler,Platform,SafeAreaView} from "react-native";
+import { Text, View ,StyleSheet,ActivityIndicator,BackHandler,Platform,LogBox} from "react-native";
 import { WebView } from 'react-native-webview';
 import OfflineNotice from "../components/OfflineNotice";
 import NetInfo from "@react-native-community/netinfo";
-export default function NewsandEvent_sc(){
+import SomethingWent from "../components/SomethingWent";
 
+
+export default function NewsandEvent_sc(){
     const webViewRef = useRef(null);
 const onAndroidBackPress = () => {
   if (webViewRef.current) {
@@ -14,6 +16,10 @@ const onAndroidBackPress = () => {
   return false;
 };
 
+//remove all warn
+LogBox.ignoreAllLogs();
+
+
 useEffect(() => {
   if (Platform.OS === 'android') {
     BackHandler.addEventListener('hardwareBackPress', onAndroidBackPress);
@@ -22,24 +28,27 @@ useEffect(() => {
     };
   }
 }, []);
-const [isConnected, setIsConnected] = useState(true);
+const [isInternetReachable, setisInternetReachable] = useState(false);
 useEffect(()=>{
   const unsubscribe = NetInfo.addEventListener(state => {
-    setIsConnected(state.isConnected)
-    })
-  return unsubscribe();
-  },[NetInfo])
-  console.log('newsandevt',isConnected);
-    return(
-      <>
+    setisInternetReachable(state.isInternetReachable)
+    });
+    return () => unsubscribe();
+
+  },[])
+
+
+  return(
+    <>
       
         <View style =  {{flex: 1}}>
-        {isConnected ?   
+        {isInternetReachable ?   
         <WebView
         ref={webViewRef}
         style={styles.container}
-        source={{ uri: 'https://news.vidyaacademy.ac.in' }}
+        source={{ uri: 'https://news.vidyaacademy.ac.in/'}}
         startInLoadingState={true}
+        renderError={()=>(<SomethingWent/>)}
         renderLoading={() => (
           <ActivityIndicator
           color="black"
@@ -47,8 +56,9 @@ useEffect(()=>{
           style={styles.flexContainer}
           />
           )}
-          />:<OfflineNotice/>}
-        
+          />:<OfflineNotice/>
+          
+        }
       
 </View>
       </>

@@ -7,18 +7,6 @@ const windowHeight = Dimensions.get('window').height;
 
 export default function Contact_sc() {
 
-    makeCall = () => {
-
-        let phoneNumber = '9447540982';
-
-        if (Platform.OS === 'android') {
-            phoneNumber = 'tel:${9447540982}';
-        } else {
-            phoneNumber = 'telprompt:${9447540982}';
-        }
-
-        Linking.openURL(phoneNumber);
-    };
     openEmail = () => {
         Linking.openURL("mailto: info@vidyatcklmr.ac.in")
     }
@@ -44,7 +32,7 @@ export default function Contact_sc() {
                     <Ionicons name="call-outline" size={20} />
                     <Text style={{ fontWeight: 'bold', fontSize: 15 }}>Call</Text>
                 </View>
-                <TouchableOpacity onPress={makeCall} activeOpacity={0.7} style={styles.touchableButton} >
+                <TouchableOpacity onPress={() => { Linking.openURL(`tel:9447540982`) }} activeOpacity={0.7} style={styles.touchableButton} >
                     <Text style={styles.TextStyle}>9447540982</Text>
                 </TouchableOpacity>
                 <View style={styles.ma}>

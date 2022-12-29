@@ -3,7 +3,7 @@ import { Text,TouchableOpacity,View,StyleSheet } from "react-native";
 import { Ionicons } from '@expo/vector-icons'
 import {useNavigation} from '@react-navigation/native';
 
-                                     
+                                    
 export default function Acadamics_btn() {        
     const navigation = useNavigation();
     return(

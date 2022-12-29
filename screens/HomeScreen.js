@@ -61,7 +61,6 @@ const styles = StyleSheet.create({
         alignContent: 'center',
         alignItems: 'center',
         width: '100%',
-        //backgroundColor: 'lime',
         paddingTop: 30,
         justifyContent: "flex-end",
     },

@@ -40,7 +40,13 @@ LogBox.ignoreAllLogs();
 
 //trying to remove header
 const runFirst = `
-      true; 
+    let rmfoot =document.querySelector("body > section.quk_lnk.wow.fadeInUp").remove();
+    let rdfoot =document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
+    let rmsub =document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div.col-lg-3.col-md-3.col-sm-12.col-xs-12.cont_L_bordr").remove();
+    let rmyt =document.querySelector(".text-center").remove();
+    let rmmen =document.querySelector("body > section.hed > div.menu.wow.fadeInRight > div > div > div.col-lg-10.col-md-12.col-sm-12.col-xs-12").remove();
+    let rmrme =document.querySelector("body > section.hed > div.menu.wow.fadeInRight > div > div > div").remove();
+    true; 
     `;
     return(
         <>

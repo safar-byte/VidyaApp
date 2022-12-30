@@ -1,5 +1,9 @@
-import React from "react";
-import { Text, View ,StyleSheet} from "react-native";
+import React,{useEffect,useRef,useState}  from "react";
+import { Text, View ,StyleSheet,ActivityIndicator,BackHandler,Platform,LogBox} from "react-native";
+import { WebView } from 'react-native-webview';
+import OfflineNotice from "../components/OfflineNotice";
+import NetInfo from "@react-native-community/netinfo";
+import SomethingWent from "../components/SomethingWent"; 
 
 export default function Acadamics_sc(){
         

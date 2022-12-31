@@ -137,9 +137,11 @@ export default function Admission_sc() {
 
                 }
                 <Modal visible={visible}>
-                    <View style={{ backgroundColor: 'white', flex: 1 }}>
-
-                    </View>
+                <ActivityIndicator
+                                color="black"
+                                size="large"
+                                style={styles.flexContainer}
+                            />
                 </Modal>
 
 

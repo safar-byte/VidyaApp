@@ -57,6 +57,7 @@ export default function Admission_sc() {
             document.querySelector("body > section.cont_bg > div:nth-child(3) > div").remove();
             document.querySelector("body > section.cont_bg > div:nth-child(6)").remove();
             document.querySelector("body > section.banner.wow.fadeIn > img").remove();
+            document.querySelector("body > section.cont_bg > div:nth-child(5)").remove();
             document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div > div > div > div > div > div.but").remove();
             window.ReactNativeWebView.postMessage("main_page");
         
@@ -78,6 +79,11 @@ export default function Admission_sc() {
                 `document.querySelector("body > section.cont_bg > div:nth-child(4) > div").remove();
                 document.querySelector("body > section.banner.wow.fadeIn > img").remove();
                 document.querySelector("body > section.cont_bg > div:nth-child(7)").remove();
+                document.querySelector("body > section.cont_bg > div:nth-child(5)").remove();
+                document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div > div > div > div > div > div:nth-child(3) > div.col-lg-3.col-md-3.col-sm-12.col-sm-12.col-xs-12 > div.prost_bx.bdr_rdiz").remove();
+                document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div > div > div > div > div > div:nth-child(3) > div.col-lg-3.col-md-3.col-sm-12.col-sm-12.col-xs-12 > div:nth-child(4)").remove();
+                document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div > div > div > div > div > div:nth-child(3) > div.col-lg-3.col-md-3.col-sm-12.col-sm-12.col-xs-12 > div:nth-child(5)").remove();
+                document.querySelector("body > section.cont_bg > div:nth-child(6) > div").remove();
                 window.ReactNativeWebView.postMessage("page_2");
                 ;`
             );
@@ -87,6 +93,10 @@ export default function Admission_sc() {
                 `document.querySelector("body > section.cont_bg > div:nth-child(4) > div").remove();
                 document.querySelector("body > section.banner.wow.fadeIn > img").remove();
                 document.querySelector("body > section.cont_bg > div:nth-child(7) > div > div").remove();
+                document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div > div > div > div > div > div:nth-child(3) > div.col-lg-3.col-md-3.col-sm-12.col-sm-12.col-xs-12 > div.prost_bx.bdr_rdiz").remove();
+                document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div > div > div > div > div > div:nth-child(3) > div.col-lg-3.col-md-3.col-sm-12.col-sm-12.col-xs-12 > div:nth-child(4)").remove();
+                document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div > div > div > div > div > div:nth-child(3) > div.col-lg-3.col-md-3.col-sm-12.col-sm-12.col-xs-12 > div:nth-child(5)").remove();
+                document.querySelector("body > section.cont_bg > div:nth-child(6) > div").remove();
                 window.ReactNativeWebView.postMessage("page_3");
                 ;`
             );

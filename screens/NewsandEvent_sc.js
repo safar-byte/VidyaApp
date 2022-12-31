@@ -7,27 +7,32 @@ import SomethingWent from "../components/SomethingWent";
 
 
 export default function NewsandEvent_sc(){
-    const webViewRef = useRef(null);
-const onAndroidBackPress = () => {
-  if (webViewRef.current) {
-    webViewRef.current.goBack();
-    return true; // prevent default behavior (exit app)
+
+  const [visible, setVisible] = useState(true);
+
+
+  const webViewRef = useRef();
+
+  useEffect(() => {
+      if (Platform.OS === 'android') {
+          BackHandler.addEventListener('hardwareBackPress', HandleBackPressed);
+
+          return () => {
+              BackHandler.removeEventListener('hardwareBackPress', HandleBackPressed);
+          }
+      }
+  }, []); // INITIALIZE ONLY ONCE
+
+  const HandleBackPressed = () => {
+      if (webViewRef.current.canGoBack) {
+          webViewRef.current.goBack();
+          return true; // PREVENT DEFAULT BEHAVIOUR (EXITING THE APP)
+      }
+      return false;
   }
-  return false;
-};
-
-//remove all warn
-LogBox.ignoreAllLogs();
 
 
-useEffect(() => {
-  if (Platform.OS === 'android') {
-    BackHandler.addEventListener('hardwareBackPress', onAndroidBackPress);
-    return () => {
-      BackHandler.removeEventListener('hardwareBackPress', onAndroidBackPress);
-    };
-  }
-}, []);
+
 const [isInternetReachable, setisInternetReachable] = useState(false);
 useEffect(()=>{
   const unsubscribe = NetInfo.addEventListener(state => {
@@ -37,7 +42,13 @@ useEffect(()=>{
 
   },[])
 
+    //remove all warn
+    LogBox.ignoreAllLogs();
 
+    const onNavigationStateChange = (navState) => {
+      webViewRef.current.canGoBack = navState.canGoBack
+    };
+  
   return(
     <>
       
@@ -47,6 +58,7 @@ useEffect(()=>{
         ref={webViewRef}
         style={styles.container}
         source={{ uri: 'https://news.vidyaacademy.ac.in/'}}
+        onNavigationStateChange={onNavigationStateChange}
         startInLoadingState={true}
         renderError={()=>(<SomethingWent/>)}
         renderLoading={() => (

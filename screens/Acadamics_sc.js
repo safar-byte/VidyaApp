@@ -6,25 +6,33 @@ import NetInfo from "@react-native-community/netinfo";
 import SomethingWent from "../components/SomethingWent"; 
 
 export default function Acadamics_sc(){
-  const webViewRef = useRef();
+ 
+    const [visible, setVisible] = useState(true);
 
-  useEffect(() => {
-      if (Platform.OS === 'android') {
-        BackHandler.addEventListener('hardwareBackPress', HandleBackPressed);
 
-        return () => {
-           BackHandler.removeEventListener('hardwareBackPress', HandleBackPressed);
+    const webViewRef = useRef();
+
+    useEffect(() => {
+        if (Platform.OS === 'android') {
+            BackHandler.addEventListener('hardwareBackPress', HandleBackPressed);
+
+            return () => {
+                BackHandler.removeEventListener('hardwareBackPress', HandleBackPressed);
+            }
         }
-      }
     }, []); // INITIALIZE ONLY ONCE
 
     const HandleBackPressed = () => {
         if (webViewRef.current.canGoBack) {
-          webViewRef.current.goBack();
+            webViewRef.current.goBack();
             return true; // PREVENT DEFAULT BEHAVIOUR (EXITING THE APP)
         }
         return false;
     }
+
+
+
+
     const [isInternetReachable, setisInternetReachable] = useState(false);
     useEffect(() => {
         const unsubscribe = NetInfo.addEventListener(state => {
@@ -33,8 +41,12 @@ export default function Acadamics_sc(){
         return () => unsubscribe();
 
     }, [])
-//remove all warn
-LogBox.ignoreAllLogs();
+
+    //remove all warn
+    LogBox.ignoreAllLogs();
+
+
+
 
 //trying to remove header
 const injectJS = () => {
@@ -46,16 +58,19 @@ const injectJS = () => {
     document.querySelector("body > section.hed").remove();
     document.querySelector("div#slide-panel").remove();
     document.querySelector("body > section.banner.wow.fadeIn").remove();
-   
+    window.ReactNativeWebView.postMessage("main_page");
+    
     ; 
     `
     ,
-
-
-        );
-
-    };
-    const onNavigationStateChange = (navState) => {
+    
+    
+    );
+    
+  };
+  const onNavigationStateChange = (navState) => {
+      setVisible(true);
+      webViewRef.current.canGoBack=navState.canGoBack
       if (navState.url === 'https://vidyatcklmr.ac.in/department_details.php?dep_id=2') {
           webViewRef.current.injectJavaScript(
               `document.querySelector("#slide-panel").remove();
@@ -65,6 +80,7 @@ const injectJS = () => {
               document.querySelector(".text-center").remove();
               document.querySelector("body > section.cont_bg > div:nth-child(5)").remove();
               document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
+              window.ReactNativeWebView.postMessage("page_2");
               ;`
           );
       }
@@ -77,6 +93,7 @@ const injectJS = () => {
               document.querySelector(".text-center").remove();
               document.querySelector("body > section.cont_bg > div:nth-child(5)").remove();
               document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
+              window.ReactNativeWebView.postMessage("page_3");
               ;`
           );
       }
@@ -89,6 +106,7 @@ const injectJS = () => {
             document.querySelector(".text-center").remove();
             document.querySelector("body > section.cont_bg > div:nth-child(5)").remove();
             document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
+            window.ReactNativeWebView.postMessage("page_4");
             ;`
         );
       }
@@ -101,6 +119,7 @@ const injectJS = () => {
             document.querySelector(".text-center").remove();
             document.querySelector("body > section.cont_bg > div:nth-child(5)").remove();
             document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
+            window.ReactNativeWebView.postMessage("page_5");
             ;`
         );
       }
@@ -113,6 +132,7 @@ const injectJS = () => {
             document.querySelector(".text-center").remove();
             document.querySelector("body > section.cont_bg > div:nth-child(5)").remove();
             document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
+            window.ReactNativeWebView.postMessage("page_6");
             ;`
         );
       }
@@ -125,12 +145,17 @@ const injectJS = () => {
             document.querySelector(".text-center").remove();
             document.querySelector("body > section.cont_bg > div:nth-child(5)").remove();
             document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
+            window.ReactNativeWebView.postMessage("page_7");
             ;`
         );
       }
-      webViewRef.current.canGoBack=navState.canGoBack
   };
+  const onMessage = (event) => {
 
+    setVisible(false);
+
+
+}
 
 
     return(
@@ -145,6 +170,7 @@ const injectJS = () => {
         style={styles.container}
         source={{ uri: 'https://vidyatcklmr.ac.in/departments.php'}}
         startInLoadingState={true}
+        onMessage={onMessage}
         renderError={()=>(<SomethingWent/>)}
         renderLoading={() => (
           <ActivityIndicator
@@ -155,8 +181,15 @@ const injectJS = () => {
           )}
           />:<OfflineNotice/>
           
+          
         }
-      
+       <Modal visible={visible}>
+                    <ActivityIndicator
+                        color="black"
+                        size="large"
+                        style={styles.flexContainer}
+                    />
+                </Modal>
 </View>
       </>
     );

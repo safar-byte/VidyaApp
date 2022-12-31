@@ -11,8 +11,8 @@ export default function Admission_sc() {
 
 
     const [visible, setVisible] = useState(true);
-    const [canGoBack, setCanGoBack] = useState(false);
-    // const [loading, setLoading] = useState(true);
+
+
     const webViewRef = useRef();
 
     useEffect(() => {
@@ -95,7 +95,7 @@ export default function Admission_sc() {
     };
 
     const onMessage = (event) => {
-        console.log(event.nativeEvent.data);
+
         setVisible(false);
 
 
@@ -115,7 +115,7 @@ export default function Admission_sc() {
 
                         ref={webViewRef}
                         style={styles.container}
-                        // injectedJavaScript={runFirst}
+
                         onLoad={injectJS}
 
                         source={{ uri: 'https://vidyatcklmr.ac.in/admissions_vidya.php' }}
@@ -124,7 +124,7 @@ export default function Admission_sc() {
                         onMessage={onMessage}
 
 
-                        // injectedJavaScript={runFirst}
+
                         renderError={() => (<SomethingWent />)}
 
                     />

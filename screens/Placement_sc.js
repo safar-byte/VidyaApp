@@ -11,13 +11,7 @@ export default function Placement_sc() {
 
   const webViewRef = useRef(null);
   const [visible, setVisible] = useState(true);
-  const onAndroidBackPress = () => {
-    if (webViewRef.current) {
-      webViewRef.current.goBack();
-      return true; // prevent default behavior (exit app)
-    }
-    return false;
-  };
+
 
 
 
@@ -44,7 +38,6 @@ export default function Placement_sc() {
 
   //trying to remove header
   const injectJS = () => {
-    // setVisible(true);
     webViewRef.current.injectJavaScript(
       `document.querySelector("#header-text-nav-container").remove();
       document.querySelector("#secondary").remove();
@@ -82,7 +75,7 @@ export default function Placement_sc() {
   }
 
   const onMessage = (event) => {
-    console.log(event.nativeEvent.data);
+
     setVisible(false);
 
 
@@ -100,7 +93,7 @@ export default function Placement_sc() {
           onLoad={injectJS}
           onMessage={onMessage}
           onNavigationStateChange={onNavigationStateChange}
-          // injectedJavaScript={runFirst}
+
           renderError={() => (<SomethingWent />)}
 
         /> : <OfflineNotice />

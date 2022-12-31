@@ -11,8 +11,8 @@ export default function Admission_sc() {
 
 
     const [visible, setVisible] = useState(true);
+    const [canGoBack, setCanGoBack] = useState(false);
     // const [loading, setLoading] = useState(true);
-    const [progress, setProgress] = useState(0);
     const webViewRef = useRef();
 
     useEffect(() => {
@@ -31,7 +31,6 @@ export default function Admission_sc() {
             return true; // PREVENT DEFAULT BEHAVIOUR (EXITING THE APP)
         }
         return false;
-
     }
 
 
@@ -58,6 +57,7 @@ export default function Admission_sc() {
             document.querySelector("body > section.cont_bg > div:nth-child(3) > div").remove();
             document.querySelector("body > section.cont_bg > div:nth-child(6)").remove();
             document.querySelector("body > section.banner.wow.fadeIn > img").remove();
+            document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div > div > div > div > div > div.but").remove();
             window.ReactNativeWebView.postMessage("main_page");
         
             ;
@@ -71,6 +71,7 @@ export default function Admission_sc() {
 
     const onNavigationStateChange = (navState) => {
         setVisible(true);
+        webViewRef.current.canGoBack = navState.canGoBack
         if (navState.url === 'https://vidyatcklmr.ac.in/admission_details.php?adm_id=5') {
 
             webViewRef.current.injectJavaScript(
@@ -90,7 +91,7 @@ export default function Admission_sc() {
                 ;`
             );
         }
-        webViewRef.current.canGoBack = navState.canGoBack
+
     };
 
     const onMessage = (event) => {
@@ -125,23 +126,17 @@ export default function Admission_sc() {
 
                         // injectedJavaScript={runFirst}
                         renderError={() => (<SomethingWent />)}
-                        renderLoading={() => (
-                            <ActivityIndicator
-                                color="black"
-                                size="large"
-                                style={styles.flexContainer}
-                            />
-                        )}
+
                     />
                     : <OfflineNotice />
 
                 }
                 <Modal visible={visible}>
-                <ActivityIndicator
-                                color="black"
-                                size="large"
-                                style={styles.flexContainer}
-                            />
+                    <ActivityIndicator
+                        color="black"
+                        size="large"
+                        style={styles.flexContainer}
+                    />
                 </Modal>
 
 

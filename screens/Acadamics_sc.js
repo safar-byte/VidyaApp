@@ -56,11 +56,11 @@ const injectJS = () => {
 
     };
     const onNavigationStateChange = (navState) => {
-      if (navState.url === 'https://vidyatcklmr.ac.in/admission_details.php?adm_id=5') {
+      if (navState.url === 'https://vidyatcklmr.ac.in/department_details.php?dep_id=2') {
           webViewRef.current.injectJavaScript(
-              `document.querySelector("body > section.cont_bg > div:nth-child(4) > div").remove();
-              document.querySelector("body > section.banner.wow.fadeIn > img").remove();
-              document.querySelector("body > section.cont_bg > div:nth-child(7)").remove();
+              `document.querySelector("#slide-panel").remove();
+              document.querySelector("body > section.hed").remove();
+              document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
               ;`
           );
       }
@@ -69,6 +69,8 @@ const injectJS = () => {
               `document.querySelector("body > section.cont_bg > div:nth-child(4) > div").remove();
               document.querySelector("body > section.banner.wow.fadeIn > img").remove();
               document.querySelector("body > section.cont_bg > div:nth-child(7) > div > div").remove();
+              document.querySelector("body > section.cont_bg > div:nth-child(4)").remove();
+              document.querySelector("body > section.cont_bg > div:nth-child(6)").remove();
               ;`
           );
       }

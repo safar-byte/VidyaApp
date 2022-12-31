@@ -6,26 +6,26 @@ import NetInfo from "@react-native-community/netinfo";
 import SomethingWent from "../components/SomethingWent"; 
 
 export default function Acadamics_sc(){
-        
-const webViewRef = useRef(null);
-const onAndroidBackPress = () => {
-  if (webViewRef.current) {
-    webViewRef.current.goBack();
-    return true; // prevent default behavior (exit app)
-  }
-  return false;
-};
-
-
-
-useEffect(() => {
+  const webView = useRef(null);
+  const [canGoBack, setCanGoBack] = useState(false);
+  
+  useEffect(() => {
     if (Platform.OS === 'android') {
-        BackHandler.addEventListener('hardwareBackPress', onAndroidBackPress);
-        return () => {
-      BackHandler.removeEventListener('hardwareBackPress', onAndroidBackPress);
-    };
-}
-}, []);
+      BackHandler.addEventListener('hardwareBackPress', HandleBackPressed);
+  
+      return () => {
+         BackHandler.removeEventListener('hardwareBackPress', HandleBackPressed);
+      }
+    }
+  }, []); // INITIALIZE ONLY ONCE
+  
+  const HandleBackPressed = () => {
+      if (webView.current.canGoBack) {
+          webView.current.goBack();
+          return true; // PREVENT DEFAULT BEHAVIOUR (EXITING THE APP)
+      }
+      return false;
+  }
 const [isInternetReachable, setisInternetReachable] = useState(false);
 useEffect(()=>{
     const unsubscribe = NetInfo.addEventListener(state => {
@@ -34,7 +34,6 @@ useEffect(()=>{
     return () => unsubscribe();
     
 },[])
-
 //remove all warn
 LogBox.ignoreAllLogs();
 
@@ -44,8 +43,12 @@ const runFirst = `
     let rdfoot =document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
     let rmsub =document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div.col-lg-3.col-md-3.col-sm-12.col-xs-12.cont_L_bordr").remove();
     let rmyt =document.querySelector(".text-center").remove();
-    let rmmen =document.querySelector("body > section.hed > div.menu.wow.fadeInRight > div > div > div.col-lg-10.col-md-12.col-sm-12.col-xs-12").remove();
-    let rmrme =document.querySelector("body > section.hed > div.menu.wow.fadeInRight > div > div > div").remove();
+    let rmhd =document.querySelector("body > section.hed").remove();
+    let rmsdi =document.querySelector("div#slide-panel").remove();
+    let rmimg =document.querySelector("body > section.banner.wow.fadeIn").remove();
+   
+
+    let rmlaa =document.querySelector("body > section.cont_bg > div:nth-child(5)").remove();
     true; 
     `;
     return(
@@ -54,11 +57,12 @@ const runFirst = `
         <View style =  {{flex: 1}}>
         {isInternetReachable ?   
         <WebView
-        ref={webViewRef}
+        ref={webView}
+        onNavigationStateChange={navState => {webView.current.canGoBack = navState.canGoBack}}
+        injectedJavaScript={runFirst}
         style={styles.container}
         source={{ uri: 'https://vidyatcklmr.ac.in/departments.php'}}
         startInLoadingState={true}
-        injectedJavaScript={runFirst}
         renderError={()=>(<SomethingWent/>)}
         renderLoading={() => (
           <ActivityIndicator

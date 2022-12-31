@@ -80,6 +80,10 @@ const injectJS = () => {
               document.querySelector(".text-center").remove();
               document.querySelector("body > section.cont_bg > div:nth-child(5)").remove();
               document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
+              document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div > div > div > div > div > div:nth-child(3) > div.col-lg-3.col-md-3.col-sm-12.col-sm-12.col-xs-12 > div.prost_bx.bdr_rdiz").remove();
+              document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div > div > div > div > div > div:nth-child(3) > div.col-lg-3.col-md-3.col-sm-12.col-sm-12.col-xs-12 > div:nth-child(2)").remove();
+              document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div > div > div > div > div > div:nth-child(3) > div.col-lg-3.col-md-3.col-sm-12.col-sm-12.col-xs-12 > div:nth-child(3)").remove();
+              document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div > div > div > div > div > div:nth-child(3) > div.col-lg-3.col-md-3.col-sm-12.col-sm-12.col-xs-12 > div.prost_bx").remove();
               window.ReactNativeWebView.postMessage("page_2");
               ;`
           );
@@ -93,6 +97,10 @@ const injectJS = () => {
               document.querySelector(".text-center").remove();
               document.querySelector("body > section.cont_bg > div:nth-child(5)").remove();
               document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
+              document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div > div > div > div > div > div:nth-child(3) > div.col-lg-3.col-md-3.col-sm-12.col-sm-12.col-xs-12 > div.prost_bx.bdr_rdiz").remove();
+              document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div > div > div > div > div > div:nth-child(3) > div.col-lg-3.col-md-3.col-sm-12.col-sm-12.col-xs-12 > div:nth-child(2)").remove();
+              document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div > div > div > div > div > div:nth-child(3) > div.col-lg-3.col-md-3.col-sm-12.col-sm-12.col-xs-12 > div:nth-child(3)").remove();
+              document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div > div > div > div > div > div:nth-child(3) > div.col-lg-3.col-md-3.col-sm-12.col-sm-12.col-xs-12 > div.prost_bx").remove();
               window.ReactNativeWebView.postMessage("page_3");
               ;`
           );
@@ -106,6 +114,10 @@ const injectJS = () => {
             document.querySelector(".text-center").remove();
             document.querySelector("body > section.cont_bg > div:nth-child(5)").remove();
             document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
+            document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div > div > div > div > div > div:nth-child(3) > div.col-lg-3.col-md-3.col-sm-12.col-sm-12.col-xs-12 > div.prost_bx.bdr_rdiz").remove();
+            document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div > div > div > div > div > div:nth-child(3) > div.col-lg-3.col-md-3.col-sm-12.col-sm-12.col-xs-12 > div:nth-child(2)").remove();
+            document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div > div > div > div > div > div:nth-child(3) > div.col-lg-3.col-md-3.col-sm-12.col-sm-12.col-xs-12 > div:nth-child(3)").remove();
+            document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div > div > div > div > div > div:nth-child(3) > div.col-lg-3.col-md-3.col-sm-12.col-sm-12.col-xs-12 > div.prost_bx").remove();
             window.ReactNativeWebView.postMessage("page_4");
             ;`
         );
@@ -119,6 +131,10 @@ const injectJS = () => {
             document.querySelector(".text-center").remove();
             document.querySelector("body > section.cont_bg > div:nth-child(5)").remove();
             document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
+            document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div > div > div > div > div > div:nth-child(3) > div.col-lg-3.col-md-3.col-sm-12.col-sm-12.col-xs-12 > div.prost_bx.bdr_rdiz").remove();
+            document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div > div > div > div > div > div:nth-child(3) > div.col-lg-3.col-md-3.col-sm-12.col-sm-12.col-xs-12 > div:nth-child(2)").remove();
+            document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div > div > div > div > div > div:nth-child(3) > div.col-lg-3.col-md-3.col-sm-12.col-sm-12.col-xs-12 > div:nth-child(3)").remove();
+            document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div > div > div > div > div > div:nth-child(3) > div.col-lg-3.col-md-3.col-sm-12.col-sm-12.col-xs-12 > div.prost_bx").remove();
             window.ReactNativeWebView.postMessage("page_5");
             ;`
         );
@@ -132,6 +148,10 @@ const injectJS = () => {
             document.querySelector(".text-center").remove();
             document.querySelector("body > section.cont_bg > div:nth-child(5)").remove();
             document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
+            document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div > div > div > div > div > div:nth-child(3) > div.col-lg-3.col-md-3.col-sm-12.col-sm-12.col-xs-12 > div.prost_bx.bdr_rdiz").remove();
+            document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div > div > div > div > div > div:nth-child(3) > div.col-lg-3.col-md-3.col-sm-12.col-sm-12.col-xs-12 > div:nth-child(2)").remove();
+            document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div > div > div > div > div > div:nth-child(3) > div.col-lg-3.col-md-3.col-sm-12.col-sm-12.col-xs-12 > div:nth-child(3)").remove();
+            document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div > div > div > div > div > div:nth-child(3) > div.col-lg-3.col-md-3.col-sm-12.col-sm-12.col-xs-12 > div.prost_bx").remove();
             window.ReactNativeWebView.postMessage("page_6");
             ;`
         );
@@ -145,6 +165,10 @@ const injectJS = () => {
             document.querySelector(".text-center").remove();
             document.querySelector("body > section.cont_bg > div:nth-child(5)").remove();
             document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
+            document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div > div > div > div > div > div:nth-child(3) > div.col-lg-3.col-md-3.col-sm-12.col-sm-12.col-xs-12 > div.prost_bx.bdr_rdiz").remove();
+            document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div > div > div > div > div > div:nth-child(3) > div.col-lg-3.col-md-3.col-sm-12.col-sm-12.col-xs-12 > div:nth-child(2)").remove();
+            document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div > div > div > div > div > div:nth-child(3) > div.col-lg-3.col-md-3.col-sm-12.col-sm-12.col-xs-12 > div:nth-child(3)").remove();
+            document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div > div > div > div > div > div:nth-child(3) > div.col-lg-3.col-md-3.col-sm-12.col-sm-12.col-xs-12 > div.prost_bx").remove();
             window.ReactNativeWebView.postMessage("page_7");
             ;`
         );

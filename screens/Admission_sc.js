@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState, Component, current } from "react";
-import { Text, View, StyleSheet, ActivityIndicator, BackHandler, Platform, LogBox, Dimensions } from "react-native";
+import { Button, View, StyleSheet, ActivityIndicator, BackHandler, Platform, LogBox, Modal } from "react-native";
 import { WebView } from 'react-native-webview';
 import OfflineNotice from "../components/OfflineNotice";
 import NetInfo from "@react-native-community/netinfo";
@@ -10,28 +10,31 @@ import SomethingWent from "../components/SomethingWent";
 export default function Admission_sc() {
 
 
-
+    const [visible, setVisible] = useState(true);
+    // const [loading, setLoading] = useState(true);
+    const [progress, setProgress] = useState(0);
     const webViewRef = useRef();
 
     useEffect(() => {
         if (Platform.OS === 'android') {
-          BackHandler.addEventListener('hardwareBackPress', HandleBackPressed);
-    
-          return () => {
-             BackHandler.removeEventListener('hardwareBackPress', HandleBackPressed);
-          }
-        }
-      }, []); // INITIALIZE ONLY ONCE
-    
-      const HandleBackPressed = () => {
-          if (webViewRef.current.canGoBack) {
-            webViewRef.current.goBack();
-              return true; // PREVENT DEFAULT BEHAVIOUR (EXITING THE APP)
-          }
-          return false;
-      }
+            BackHandler.addEventListener('hardwareBackPress', HandleBackPressed);
 
-    console.log('HEllo')
+            return () => {
+                BackHandler.removeEventListener('hardwareBackPress', HandleBackPressed);
+            }
+        }
+    }, []); // INITIALIZE ONLY ONCE
+
+    const HandleBackPressed = () => {
+        if (webViewRef.current.canGoBack) {
+            webViewRef.current.goBack();
+            return true; // PREVENT DEFAULT BEHAVIOUR (EXITING THE APP)
+        }
+        return false;
+
+    }
+
+
 
 
     const [isInternetReachable, setisInternetReachable] = useState(false);
@@ -48,28 +51,33 @@ export default function Admission_sc() {
 
 
     const injectJS = () => {
+        // setVisible(true);
         webViewRef.current.injectJavaScript(
             `document.querySelector("body > section.hed").remove();
             document.querySelector("body > section.quk_lnk.wow.fadeInUp").remove();
             document.querySelector("body > section.cont_bg > div:nth-child(3) > div").remove();
             document.querySelector("body > section.cont_bg > div:nth-child(6)").remove();
             document.querySelector("body > section.banner.wow.fadeIn > img").remove();
+            window.ReactNativeWebView.postMessage("main_page");
         
             ;
             
             `,
 
-
         );
+
 
     };
 
     const onNavigationStateChange = (navState) => {
+        setVisible(true);
         if (navState.url === 'https://vidyatcklmr.ac.in/admission_details.php?adm_id=5') {
+
             webViewRef.current.injectJavaScript(
                 `document.querySelector("body > section.cont_bg > div:nth-child(4) > div").remove();
                 document.querySelector("body > section.banner.wow.fadeIn > img").remove();
                 document.querySelector("body > section.cont_bg > div:nth-child(7)").remove();
+                window.ReactNativeWebView.postMessage("page_2");
                 ;`
             );
         }
@@ -78,22 +86,19 @@ export default function Admission_sc() {
                 `document.querySelector("body > section.cont_bg > div:nth-child(4) > div").remove();
                 document.querySelector("body > section.banner.wow.fadeIn > img").remove();
                 document.querySelector("body > section.cont_bg > div:nth-child(7) > div > div").remove();
+                window.ReactNativeWebView.postMessage("page_3");
                 ;`
             );
         }
-        webViewRef.current.canGoBack=navState.canGoBack
+        webViewRef.current.canGoBack = navState.canGoBack
     };
 
+    const onMessage = (event) => {
+        console.log(event.nativeEvent.data);
+        setVisible(false);
 
 
-
-
-
-
-
-
-
-
+    }
 
 
     return (
@@ -102,8 +107,11 @@ export default function Admission_sc() {
             <View style={{ flex: 1 }}>
 
 
+
                 {isInternetReachable ?
                     <WebView
+
+
                         ref={webViewRef}
                         style={styles.container}
                         // injectedJavaScript={runFirst}
@@ -112,9 +120,8 @@ export default function Admission_sc() {
                         source={{ uri: 'https://vidyatcklmr.ac.in/admissions_vidya.php' }}
                         onNavigationStateChange={onNavigationStateChange}
 
-                        onMessage={(event) => {
-                            alert(event.nativeEvent.data);
-                        }}
+                        onMessage={onMessage}
+
 
                         // injectedJavaScript={runFirst}
                         renderError={() => (<SomethingWent />)}
@@ -125,9 +132,15 @@ export default function Admission_sc() {
                                 style={styles.flexContainer}
                             />
                         )}
-                    /> : <OfflineNotice />
+                    />
+                    : <OfflineNotice />
 
                 }
+                <Modal visible={visible}>
+                    <View style={{ backgroundColor: 'white', flex: 1 }}>
+
+                    </View>
+                </Modal>
 
 
             </View>

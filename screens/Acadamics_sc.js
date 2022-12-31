@@ -39,13 +39,13 @@ LogBox.ignoreAllLogs();
 //trying to remove header
 const injectJS = () => {
   webViewRef.current.injectJavaScript(`
-    let rmfoot =document.querySelector("body > section.quk_lnk.wow.fadeInUp").remove();
-    let rdfoot =document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
-    let rmsub =document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div.col-lg-3.col-md-3.col-sm-12.col-xs-12.cont_L_bordr").remove();
-    let rmyt =document.querySelector(".text-center").remove();
-    let rmhd =document.querySelector("body > section.hed").remove();
-    let rmsdi =document.querySelector("div#slide-panel").remove();
-    let rmimg =document.querySelector("body > section.banner.wow.fadeIn").remove();
+    document.querySelector("body > section.quk_lnk.wow.fadeInUp").remove();
+    document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
+    document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div.col-lg-3.col-md-3.col-sm-12.col-xs-12.cont_L_bordr").remove();
+    document.querySelector(".text-center").remove();
+    document.querySelector("body > section.hed").remove();
+    document.querySelector("div#slide-panel").remove();
+    document.querySelector("body > section.banner.wow.fadeIn").remove();
    
     ; 
     `
@@ -61,18 +61,72 @@ const injectJS = () => {
               `document.querySelector("#slide-panel").remove();
               document.querySelector("body > section.hed").remove();
               document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
+              document.querySelector("body > section.banner.wow.fadeIn").remove();
+              document.querySelector(".text-center").remove();
+              document.querySelector("body > section.cont_bg > div:nth-child(5)").remove();
+              document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
               ;`
           );
       }
-      else if (navState.url === 'https://vidyatcklmr.ac.in/admission_details.php?adm_id=4') {
+      else if (navState.url === 'https://vidyatcklmr.ac.in/department_details.php?dep_id=4') {
           webViewRef.current.injectJavaScript(
-              `document.querySelector("body > section.cont_bg > div:nth-child(4) > div").remove();
-              document.querySelector("body > section.banner.wow.fadeIn > img").remove();
-              document.querySelector("body > section.cont_bg > div:nth-child(7) > div > div").remove();
-              document.querySelector("body > section.cont_bg > div:nth-child(4)").remove();
-              document.querySelector("body > section.cont_bg > div:nth-child(6)").remove();
+              `document.querySelector("#slide-panel").remove();
+              document.querySelector("body > section.hed").remove();
+              document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
+              document.querySelector("body > section.banner.wow.fadeIn").remove();
+              document.querySelector(".text-center").remove();
+              document.querySelector("body > section.cont_bg > div:nth-child(5)").remove();
+              document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
               ;`
           );
+      }
+      else if(navState.url === 'https://vidyatcklmr.ac.in/department_details.php?dep_id=5'){
+        webViewRef.current.injectJavaScript(
+            `document.querySelector("#slide-panel").remove();
+            document.querySelector("body > section.hed").remove();
+            document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
+            document.querySelector("body > section.banner.wow.fadeIn").remove();
+            document.querySelector(".text-center").remove();
+            document.querySelector("body > section.cont_bg > div:nth-child(5)").remove();
+            document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
+            ;`
+        );
+      }
+      else if(navState.url === 'https://vidyatcklmr.ac.in/department_details.php?dep_id=11'){
+        webViewRef.current.injectJavaScript(
+            `document.querySelector("#slide-panel").remove();
+            document.querySelector("body > section.hed").remove();
+            document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
+            document.querySelector("body > section.banner.wow.fadeIn").remove();
+            document.querySelector(".text-center").remove();
+            document.querySelector("body > section.cont_bg > div:nth-child(5)").remove();
+            document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
+            ;`
+        );
+      }
+      else if(navState.url === 'https://vidyatcklmr.ac.in/department_details.php?dep_id=8'){
+        webViewRef.current.injectJavaScript(
+            `document.querySelector("#slide-panel").remove();
+            document.querySelector("body > section.hed").remove();
+            document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
+            document.querySelector("body > section.banner.wow.fadeIn").remove();
+            document.querySelector(".text-center").remove();
+            document.querySelector("body > section.cont_bg > div:nth-child(5)").remove();
+            document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
+            ;`
+        );
+      }
+      else if(navState.url === 'https://vidyatcklmr.ac.in/department_details.php?dep_id=27'){
+        webViewRef.current.injectJavaScript(
+            `document.querySelector("#slide-panel").remove();
+            document.querySelector("body > section.hed").remove();
+            document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
+            document.querySelector("body > section.banner.wow.fadeIn").remove();
+            document.querySelector(".text-center").remove();
+            document.querySelector("body > section.cont_bg > div:nth-child(5)").remove();
+            document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
+            ;`
+        );
       }
       webViewRef.current.canGoBack=navState.canGoBack
   };

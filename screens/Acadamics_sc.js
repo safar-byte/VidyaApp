@@ -1,5 +1,5 @@
 import React,{useEffect,useRef,useState}  from "react";
-import { Text, View ,StyleSheet,ActivityIndicator,BackHandler,Platform,LogBox} from "react-native";
+import { Text, View ,StyleSheet,ActivityIndicator,BackHandler,Platform,LogBox,Modal} from "react-native";
 import { WebView } from 'react-native-webview';
 import OfflineNotice from "../components/OfflineNotice";
 import NetInfo from "@react-native-community/netinfo";

@@ -13,26 +13,23 @@ export default function Admission_sc() {
 
     const webViewRef = useRef();
 
-
-    const onAndroidBackPress = () => {
-        if (webViewRef.current) {
-            webViewRef.current.goBack();
-            return true; // prevent default behavior (exit app)
-        }
-        return false;
-    };
-
-
-
     useEffect(() => {
         if (Platform.OS === 'android') {
-            BackHandler.addEventListener('hardwareBackPress', onAndroidBackPress);
-            return () => {
-                BackHandler.removeEventListener('hardwareBackPress', onAndroidBackPress);
-            };
+          BackHandler.addEventListener('hardwareBackPress', HandleBackPressed);
+    
+          return () => {
+             BackHandler.removeEventListener('hardwareBackPress', HandleBackPressed);
+          }
         }
-
-    }, []);
+      }, []); // INITIALIZE ONLY ONCE
+    
+      const HandleBackPressed = () => {
+          if (webViewRef.current.canGoBack) {
+            webViewRef.current.goBack();
+              return true; // PREVENT DEFAULT BEHAVIOUR (EXITING THE APP)
+          }
+          return false;
+      }
 
     console.log('HEllo')
 
@@ -84,6 +81,7 @@ export default function Admission_sc() {
                 ;`
             );
         }
+        webViewRef.current.canGoBack=navState.canGoBack
     };
 
 

@@ -26,7 +26,8 @@ export default function Placement_sc() {
   const [isInternetReachable, setisInternetReachable] = useState(false);
   useEffect(() => {
     const unsubscribe = NetInfo.addEventListener(state => {
-      setisInternetReachable(state.isInternetReachable)
+      setisInternetReachable(state.isInternetReachable);
+      setVisible(false);
     });
     return () => unsubscribe();
 

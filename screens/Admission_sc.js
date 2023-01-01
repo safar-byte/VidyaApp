@@ -13,6 +13,7 @@ export default function Admission_sc() {
     const [visible, setVisible] = useState(true);
 
 
+
     const webViewRef = useRef();
 
     useEffect(() => {
@@ -23,6 +24,7 @@ export default function Admission_sc() {
                 BackHandler.removeEventListener('hardwareBackPress', HandleBackPressed);
             }
         }
+
     }, []); // INITIALIZE ONLY ONCE
 
     const HandleBackPressed = () => {
@@ -39,9 +41,12 @@ export default function Admission_sc() {
     const [isInternetReachable, setisInternetReachable] = useState(false);
     useEffect(() => {
         const unsubscribe = NetInfo.addEventListener(state => {
-            setisInternetReachable(state.isInternetReachable)
+            setisInternetReachable(state.isInternetReachable);
+            setVisible(false);
+
         });
         return () => unsubscribe();
+
 
     }, [])
 

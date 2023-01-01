@@ -1,13 +1,14 @@
-import React, { Component } from "react";
+import React from "react";
 import { Text, View, StyleSheet, Linking, Platform, TouchableOpacity, Dimensions } from "react-native";
+
 import { Ionicons } from '@expo/vector-icons'
 
-const windowWidth = Dimensions.get('window').width;
-const windowHeight = Dimensions.get('window').height;
+
 
 export default function Contact_sc() {
 
-    openEmail = () => {
+
+    const openEmail = () => {
         Linking.openURL("mailto: info@vidyatcklmr.ac.in")
     }
 
@@ -24,18 +25,19 @@ export default function Contact_sc() {
                 </View >
                 <View style={{ marginStart: 10 }}>
                     <Text style={styles.add}>Address:</Text>
-                    <Text style={{ fontSize: 13 }}>Malakkal P.O., Kilimanoor, Thiruvananthapuram - 695 602, Kerala, India</Text>
+                    <Text style={{ fontSize: 13, paddingTop: 5, fontWeight: 'bold' }} >Malakkal P.O., Kilimanoor, Thiruvananthapuram {'\n'}PIN- 695 602 , Kerala, India</Text>
                 </View>
             </View>
-            <View style={styles.btmhf}>
+            <View style={styles.btmhf} >
                 <View style={styles.ga}>
                     <Ionicons name="call-outline" size={20} />
                     <Text style={{ fontWeight: 'bold', fontSize: 15 }}>Call</Text>
                 </View>
+
                 <TouchableOpacity onPress={() => { Linking.openURL(`tel:9447540982`) }} activeOpacity={0.7} style={styles.touchableButton} >
                     <Text style={styles.TextStyle}>9447540982</Text>
                 </TouchableOpacity>
-                <View style={styles.ma}>
+                <View style={{ paddingTop: 20 }}>
                     <Ionicons name="mail-open-outline" size={20} />
                     <Text style={{ fontSize: 15, fontWeight: 'bold' }}>Mail</Text>
                 </View>
@@ -44,7 +46,15 @@ export default function Contact_sc() {
                         color: 'blue',
                         fontSize: 18
                     }}>info@vidyatcklmr.ac.in</Text>
-                </TouchableOpacity></View >
+                </TouchableOpacity>
+
+
+
+            </View >
+
+
+
+
         </View >
 
     );
@@ -53,8 +63,9 @@ export default function Contact_sc() {
 
 const styles = StyleSheet.create({
     container: {
+        paddingTop: 20,
         flex: 1,
-        backgroundColor: '#E5BA73',
+        backgroundColor: '#fff',
         //justifyContent: "center",
         alignItems: "center",
 
@@ -77,14 +88,14 @@ const styles = StyleSheet.create({
         color: "brown"
     },
     add: {
-        paddingTop: 10,
-        fontSize: 18,
-        fontWeight: 'semi bold',
+        paddingTop: 20,
+        fontSize: 20,
+        fontWeight: 'bold',
         color: 'brown',
     },
     btmhf: {
         padding: 10,
-        paddingTop: 5,
+        paddingTop: 40,
         width: "100%"
     },
 

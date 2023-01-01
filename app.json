@@ -1,0 +1,33 @@
+{
+  "expo": {
+    "name": "VAST",
+    "slug": "vast",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/appicon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/vidyalogo.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#E5BA73"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/appicon.png",
+        "backgroundColor": "#E5BA73"
+      }
+    },
+    "web": {
+      "favicon": "./assets/appicon.png"
+    }
+  }
+}

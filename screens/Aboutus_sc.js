@@ -31,7 +31,6 @@ export default function Aboutus_sc() {
         return false;
     }
 
-    console.log('HEllo')
 
 
     const [isInternetReachable, setisInternetReachable] = useState(false);

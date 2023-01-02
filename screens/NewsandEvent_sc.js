@@ -13,23 +13,25 @@ export default function NewsandEvent_sc(){
 
   const webViewRef = useRef();
 
-  useEffect(() => {
-      if (Platform.OS === 'android') {
-          BackHandler.addEventListener('hardwareBackPress', HandleBackPressed);
+  const [canGoBack, setCanGoBack] = useState(false);
 
-          return () => {
-              BackHandler.removeEventListener('hardwareBackPress', HandleBackPressed);
-          }
-      }
-  }, []); // INITIALIZE ONLY ONCE
+  const onAndroidBackPress = () => {
+    if (canGoBack && webViewRef.current) {
+      webViewRef.current.goBack();
+      return true;
+    }
 
-  const HandleBackPressed = () => {
-      if (webViewRef.current.canGoBack) {
-          webViewRef.current.goBack();
-          return true; // PREVENT DEFAULT BEHAVIOUR (EXITING THE APP)
-      }
-      return false;
+    return false;
   }
+
+  useEffect(() => {
+    if (Platform.OS === 'android') {
+      BackHandler.addEventListener('hardwareBackPress', onAndroidBackPress);
+    }
+    return () => {
+      BackHandler.removeEventListener('hardwareBackPress', onAndroidBackPress);
+    }
+  }, [canGoBack]);
 
 
 
@@ -46,7 +48,7 @@ useEffect(()=>{
     LogBox.ignoreAllLogs();
 
     const onNavigationStateChange = (navState) => {
-      webViewRef.current.canGoBack = navState.canGoBack
+      setCanGoBack(navState.canGoBack);
     };
   
   return(

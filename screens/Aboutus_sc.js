@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState, Component, current } from "react";
-import { Text, View, StyleSheet, ActivityIndicator, BackHandler, Platform, LogBox, Dimensions } from "react-native";
+import { Text, View, StyleSheet, ActivityIndicator, BackHandler, Platform, LogBox, Modal,Dimensions } from "react-native";
 import { WebView } from 'react-native-webview';
 import OfflineNotice from "../components/OfflineNotice";
 import NetInfo from "@react-native-community/netinfo";
@@ -9,7 +9,7 @@ import SomethingWent from "../components/SomethingWent";
 
 export default function Aboutus_sc() {
 
-
+    const [visible, setVisible] = useState(true);
 
     const webViewRef = useRef();
 
@@ -48,28 +48,15 @@ export default function Aboutus_sc() {
 
     const injectJS = () => {
         webViewRef.current.injectJavaScript(
-            `document.querySelector("body > section.hed > div.insti.wow.fadeInLeft > div > div > div.col-lg-4.col-md-5.col-sm-12.col-xs-12 > ul").remove();
-            document.querySelector("#opener").remove();
-            document.querySelector("body > section.quk_lnk.wow.fadeInUp > button").remove();
-            document.querySelector("body > section.hed > div.menu.wow.fadeInRight > div > div > div.col-lg-10.col-md-12.col-sm-12.col-xs-12").remove();
-            document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div.col-lg-3.col-md-3.col-sm-12.col-xs-12.cont_L_bordr > div > h1").remove();
-            document.querySelector("#cssmenu > ul > li:nth-child(2) > a").remove();
-            document.querySelector("#cssmenu > ul > li:nth-child(3) > a").remove();
-            document.querySelector("#cssmenu > ul > li:nth-child(4) > a").remove();
-            document.querySelector("#cssmenu > ul > li:nth-child(5) > a").remove();
-            document.querySelector("#cssmenu > ul > li:nth-child(6) > a").remove();
-            document.querySelector("#cssmenu > ul > li:nth-child(7) > a").remove();
-            document.querySelector("#cssmenu > ul > li:nth-child(8) > a").remove();
-            document.querySelector("#cssmenu > ul > li:nth-child(9) > a").remove();
-            document.querySelector("#cssmenu > ul > li:nth-child(10) > a").remove();
-            document.querySelector("#cssmenu > ul > li:nth-child(11) > a").remove();
-            document.querySelector("#cssmenu > ul > li:nth-child(12) > a").remove();
-            document.querySelector("#cssmenu > ul > li:nth-child(13) > a").remove();
-            document.querySelector("body > section.hed > div.container > div > div.col-lg-2.col-md-12.col-sm-12.col-xs-12 > section").remove();
-            document.querySelector("#cssmenu > ul > li:nth-child(1) > ul > li:nth-child(4) > a").remove();
-            document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
-            document.querySelector("body > section.cont_bg > div:nth-child(4) > div").remove();
-            document.querySelector("#histats_counter_4964_canvas").remove();
+            `document.querySelector("body > section.hed").remove();
+            const list = document.querySelector("#cssmenu > ul > li:nth-child(1)");
+            const otherElements = document.querySelectorAll("#cssmenu > ul");
+            otherElements.forEach(element => element.remove());
+            list.style.display = 'block';
+
+
+
+            window.ReactNativeWebView.postMessage("main_page");
             ;
             
             `,
@@ -102,6 +89,7 @@ export default function Aboutus_sc() {
                     document.querySelector("body > section.cont_bg > div:nth-child(4) > div").remove();
                     document.querySelector("#histats_counter_4964_canvas").remove();
                     document.querySelector("body > section.cont_bg > div:nth-child(6) > div > div > div > p").remove();
+                    window.ReactNativeWebView.postMessage("page_2");
                ; `,
 
                 );
@@ -131,6 +119,7 @@ export default function Aboutus_sc() {
                     document.querySelector("body > section.cont_bg > div:nth-child(4) > div").remove();
                     document.querySelector("#histats_counter_4964_canvas").remove();
                     document.querySelector("body > section.cont_bg > div:nth-child(6) > div > div > div > p").remove();
+                    window.ReactNativeWebView.postMessage("page_3");
                     ;`,
                 );
             }
@@ -159,6 +148,7 @@ export default function Aboutus_sc() {
                     document.querySelector("body > section.cont_bg > div:nth-child(4) > div").remove();
                     document.querySelector("#histats_counter_4964_canvas").remove();
                     document.querySelector("body > section.cont_bg > div:nth-child(6) > div > div > div > p").remove();
+                    window.ReactNativeWebView.postMessage("page_4");
                     ;`,
                 );
             }
@@ -187,6 +177,7 @@ export default function Aboutus_sc() {
                     document.querySelector("body > section.cont_bg > div:nth-child(4) > div").remove();
                     document.querySelector("#histats_counter_4964_canvas").remove();
                     document.querySelector("body > section.cont_bg > div:nth-child(6) > div > div > div > p").remove();
+                    window.ReactNativeWebView.postMessage("page_5");
                     ;`,
                 );
             }
@@ -215,6 +206,7 @@ export default function Aboutus_sc() {
                     document.querySelector("body > section.cont_bg > div:nth-child(4) > div").remove();
                     document.querySelector("#histats_counter_4964_canvas").remove();
                     document.querySelector("body > section.cont_bg > div:nth-child(6) > div > div > div > p").remove();
+                    window.ReactNativeWebView.postMessage("page_6");
                     ;`,
                 );
             }
@@ -243,6 +235,7 @@ export default function Aboutus_sc() {
                     document.querySelector("body > section.cont_bg > div:nth-child(4) > div").remove();
                     document.querySelector("#histats_counter_4964_canvas").remove();
                     document.querySelector("body > section.cont_bg > div:nth-child(6) > div > div > div > p").remove();
+                    window.ReactNativeWebView.postMessage("page_7");
                     ;`,
                 );
             }
@@ -271,6 +264,7 @@ export default function Aboutus_sc() {
                     document.querySelector("body > section.cont_bg > div:nth-child(4) > div").remove();
                     document.querySelector("#histats_counter_4964_canvas").remove();
                     document.querySelector("body > section.cont_bg > div:nth-child(6) > div > div > div > p").remove();
+                    window.ReactNativeWebView.postMessage("page_7");
                     ;`,
                 );
             }
@@ -299,6 +293,7 @@ export default function Aboutus_sc() {
                     document.querySelector("body > section.cont_bg > div:nth-child(4) > div").remove();
                     document.querySelector("#histats_counter_4964_canvas").remove();
                     document.querySelector("body > section.cont_bg > div:nth-child(6) > div > div > div > p").remove();
+                    window.ReactNativeWebView.postMessage("page_8");
                     ;`,
                 );
             }
@@ -327,6 +322,7 @@ export default function Aboutus_sc() {
                     document.querySelector("body > section.cont_bg > div:nth-child(4) > div").remove();
                     document.querySelector("#histats_counter_4964_canvas").remove();
                     document.querySelector("body > section.cont_bg > div:nth-child(6) > div > div > div > p").remove();
+                    window.ReactNativeWebView.postMessage("page_8");
                     ;`,
                 );
             }
@@ -355,6 +351,7 @@ export default function Aboutus_sc() {
                     document.querySelector("body > section.cont_bg > div:nth-child(4) > div").remove();
                     document.querySelector("#histats_counter_4964_canvas").remove();
                     document.querySelector("body > section.cont_bg > div:nth-child(6) > div > div > div > p").remove();
+                    window.ReactNativeWebView.postMessage("page_9");
                     ;`,
                 );
             }
@@ -383,6 +380,7 @@ export default function Aboutus_sc() {
                     document.querySelector("body > section.cont_bg > div:nth-child(4) > div").remove();
                     document.querySelector("#histats_counter_4964_canvas").remove();
                     document.querySelector("body > section.cont_bg > div:nth-child(6) > div > div > div > p").remove();
+                    window.ReactNativeWebView.postMessage("page_9");
                     ;`,
                 );
             }
@@ -411,6 +409,7 @@ export default function Aboutus_sc() {
                     document.querySelector("body > section.cont_bg > div:nth-child(4) > div").remove();
                     document.querySelector("#histats_counter_4964_canvas").remove();
                     document.querySelector("body > section.cont_bg > div:nth-child(6) > div > div > div > p").remove();
+                    window.ReactNativeWebView.postMessage("page_10");
                     ;`,
                 );
             }
@@ -420,6 +419,13 @@ export default function Aboutus_sc() {
 
 
     };
+    
+    const onMessage = (event) => {
+
+        setVisible(false);
+
+
+    }
 
     return (
         <>
@@ -437,9 +443,7 @@ export default function Aboutus_sc() {
                         source={{ uri: 'https://vidyatcklmr.ac.in/about_us.php' }}
                         // onNavigationStateChange={onNavigationStateChange}
 
-                        onMessage={(event) => {
-                            alert(event.nativeEvent.data);
-                        }}
+                        onMessage={onMessage}
 
                         // injectedJavaScript={runFirst}
                         renderError={() => (<SomethingWent />)}
@@ -453,7 +457,13 @@ export default function Aboutus_sc() {
                     /> : <OfflineNotice />
 
                 }
-
+                <Modal visible={visible}>
+                    <ActivityIndicator
+                        color="black"
+                        size="large"
+                        style={styles.flexContainer}
+                    />
+                </Modal>
 
             </View>
         </>

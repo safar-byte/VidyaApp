@@ -1,11 +1,12 @@
 import React,{useEffect,useRef,useState}  from "react";
-import { Text, View ,StyleSheet,ActivityIndicator,BackHandler,Platform,LogBox} from "react-native";
+import { Text, View ,StyleSheet,ActivityIndicator,BackHandler,Modal,Platform,LogBox} from "react-native";
 import { WebView } from 'react-native-webview';
 import OfflineNotice from "../components/OfflineNotice";
 import NetInfo from "@react-native-community/netinfo";
 import SomethingWent from "../components/SomethingWent"; 
 
 export default function Resource_sc(){
+  const [visible, setVisible] = useState(true);
   const webViewRef = useRef();
 
   useEffect(() => {
@@ -52,12 +53,18 @@ const injectJS = () => {
   //document.querySelector("body > section.cont_bg > div:nth-child(5)").remove();
   //document.querySelector("body > section.cont_bg > div:nth-child(5) > div > div > div").remove();
   "window.scrollTo(100,100);"
+  window.ReactNativeWebView.postMessage("main page");
     ; 
     `
     ,
         );
 
     };
+    const onMessage = (event) => {
+
+      setVisible(false);
+
+    }
 
     return(
         <>
@@ -82,6 +89,13 @@ const injectJS = () => {
           />:<OfflineNotice/>
           
         }
+         <Modal visible={visible}>
+        <ActivityIndicator
+            color="black"
+            size="large"
+            style={styles.flexContainer}
+        />
+    </Modal>
       
 </View>
       </>

@@ -72,7 +72,7 @@ export default function Acadamics_sc() {
     };
     const onNavigationStateChange = (navState) => {
         setVisible(true);
-        setCanGoBack(navState.canGoBack)
+        setCanGoBack(navState.canGoBack);
       
         if (navState.url === 'https://vidyatcklmr.ac.in/department_details.php?dep_id=2') {
             webViewRef.current.injectJavaScript(

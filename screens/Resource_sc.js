@@ -7,24 +7,29 @@ import SomethingWent from "../components/SomethingWent";
 
 export default function Resource_sc(){
   const webViewRef = useRef();
+  const [canGoBack, setCanGoBack] = useState(false);
+
+  const onAndroidBackPress = () => {
+    if (canGoBack && webViewRef.current) {
+      webViewRef.current.goBack();
+      return true;
+    }
+
+    return false;
+  }
 
   useEffect(() => {
-      if (Platform.OS === 'android') {
-        BackHandler.addEventListener('hardwareBackPress', HandleBackPressed);
-
-        return () => {
-           BackHandler.removeEventListener('hardwareBackPress', HandleBackPressed);
-        }
-      }
-    }, []); // INITIALIZE ONLY ONCE
-
-    const HandleBackPressed = () => {
-        if (webViewRef.current.canGoBack) {
-          webViewRef.current.goBack();
-            return true; // PREVENT DEFAULT BEHAVIOUR (EXITING THE APP)
-        }
-        return false;
+    if (Platform.OS === 'android') {
+      BackHandler.addEventListener('hardwareBackPress', onAndroidBackPress);
     }
+    return () => {
+      BackHandler.removeEventListener('hardwareBackPress', onAndroidBackPress);
+    }
+  }, [canGoBack]);
+
+
+
+
     const [isInternetReachable, setisInternetReachable] = useState(false);
     useEffect(() => {
         const unsubscribe = NetInfo.addEventListener(state => {
@@ -58,6 +63,10 @@ const injectJS = () => {
         );
 
     };
+    const onNavigationStateChange = (navState) => {
+      setCanGoBack(navState.canGoBack);
+    };
+  
 
     return(
         <>
@@ -68,6 +77,7 @@ const injectJS = () => {
         ref={webViewRef}
         onLoad={injectJS}
         animationType='none'
+        onNavigationStateChange={onNavigationStateChange}
         style={styles.container}
         source={{ uri: 'https://www.vidyatcklmr.ac.in/page.php?page=92'}}
         startInLoadingState={true}

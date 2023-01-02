@@ -14,24 +14,27 @@ export default function Placement_sc() {
 
 
 
+  const [canGoBack, setCanGoBack] = useState(false);
+
+  const onAndroidBackPress = () => {
+    if (canGoBack && webViewRef.current) {
+      webViewRef.current.goBack();
+      return true;
+    }
+
+    return false;
+  }
 
   useEffect(() => {
     if (Platform.OS === 'android') {
-        BackHandler.addEventListener('hardwareBackPress', HandleBackPressed);
-
-        return () => {
-            BackHandler.removeEventListener('hardwareBackPress', HandleBackPressed);
-        }
+      BackHandler.addEventListener('hardwareBackPress', onAndroidBackPress);
     }
-}, []); // INITIALIZE ONLY ONCE
-
-const HandleBackPressed = () => {
-    if (webViewRef.current.canGoBack) {
-        webViewRef.current.goBack();
-        return true; // PREVENT DEFAULT BEHAVIOUR (EXITING THE APP)
+    return () => {
+      BackHandler.removeEventListener('hardwareBackPress', onAndroidBackPress);
     }
-    return false;
-}
+  }, [canGoBack]);
+
+
 
 const [isInternetReachable, setisInternetReachable] = useState(false);
 useEffect(() => {
@@ -69,6 +72,7 @@ useEffect(() => {
 
   const onNavigationStateChange = (navState) => {
     setVisible(true);
+    setCanGoBack(navState.canGoBack);
     webViewRef.current.injectJavaScript(
 
       `document.querySelector("#primary > div.related-posts-wrapper").remove();
@@ -76,7 +80,7 @@ useEffect(() => {
       window.ReactNativeWebView.postMessage("page_2");
        ;`,
     )
-    webViewRef.current.canGoBack = navState.canGoBack
+  
   };
 
   const onMessage = (event) => {

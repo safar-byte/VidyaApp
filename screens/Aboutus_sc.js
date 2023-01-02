@@ -37,6 +37,7 @@ export default function Aboutus_sc() {
     useEffect(() => {
         const unsubscribe = NetInfo.addEventListener(state => {
             setisInternetReachable(state.isInternetReachable)
+            setVisible(false)
         });
         return () => unsubscribe();
 
@@ -65,154 +66,9 @@ export default function Aboutus_sc() {
         );
     };
         const onNavigationStateChange = (navState) => {
-            webViewRef.current.canGoBack = navState.canGoBack
+          
             setVisible(true);
-            if (navState.url === 'https://vidyatcklmr.ac.in/page.php?sub_page=4') {
-                webViewRef.current.injectJavaScript(
-                    `document.querySelector("body > section.hed").remove();
-                    document.querySelector("body > section.quk_lnk.wow.fadeInUp").remove();
-                    const listItems = document.querySelectorAll("#cssmenu > ul > li:not(:nth-child(1))") 
-                    listItems.forEach(listItem => listItem.remove());
-                    document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
-                    document.querySelector("#slide-panel").remove();
-        
-                    window.ReactNativeWebView.postMessage("page_2");
-               ; `,
-
-                );
-            }
-            else if (navState.url === 'https://vidyatcklmr.ac.in/vision_mission.php') {
-                webViewRef.current.injectJavaScript(
-                    `document.querySelector("body > section.hed").remove();
-                    document.querySelector("body > section.quk_lnk.wow.fadeInUp").remove();
-                    const listItems = document.querySelectorAll("#cssmenu > ul > li:not(:nth-child(1))") 
-                    listItems.forEach(listItem => listItem.remove());
-                    document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
-                    document.querySelector("#slide-panel").remove();
-                    window.ReactNativeWebView.postMessage("page_3");
-                    ;`,
-                );
-            }
-            else if (navState.url === 'https://vidyatcklmr.ac.in/page.php?sub_page=6') {
-                webViewRef.current.injectJavaScript(
-                    `document.querySelector("body > section.hed").remove();
-                    document.querySelector("body > section.quk_lnk.wow.fadeInUp").remove();
-                    const listItems = document.querySelectorAll("#cssmenu > ul > li:not(:nth-child(1))") 
-                    listItems.forEach(listItem => listItem.remove());
-                    document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
-                    document.querySelector("#slide-panel").remove();
-                    window.ReactNativeWebView.postMessage("page_4");
-                    ;`,
-                );
-            }
-            else if (navState.url === 'https://vidyatcklmr.ac.in/page.php?sub_page=135') {
-                webViewRef.current.injectJavaScript(
-                    `document.querySelector("body > section.hed").remove();
-                    document.querySelector("body > section.quk_lnk.wow.fadeInUp").remove();
-                    const listItems = document.querySelectorAll("#cssmenu > ul > li:not(:nth-child(1))") 
-                    listItems.forEach(listItem => listItem.remove());
-                    document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
-                    document.querySelector("#slide-panel").remove();
-                    window.ReactNativeWebView.postMessage("page_5");
-                    ;`,
-                );
-            }
-            else if (navState.url === 'https://vidyatcklmr.ac.in/page.php?sub_page=136') {
-                webViewRef.current.injectJavaScript(
-                    `document.querySelector("body > section.hed").remove();
-                    document.querySelector("body > section.quk_lnk.wow.fadeInUp").remove();
-                    const listItems = document.querySelectorAll("#cssmenu > ul > li:not(:nth-child(1))") 
-                    listItems.forEach(listItem => listItem.remove());
-                    document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
-                    document.querySelector("#slide-panel").remove();
-                    window.ReactNativeWebView.postMessage("page_6");
-                    ;`,
-                );
-            }
-            else if (navState.url === 'https://vidyatcklmr.ac.in/page.php?sub_page=137') {
-                webViewRef.current.injectJavaScript(
-                    `document.querySelector("body > section.hed").remove();
-                    document.querySelector("body > section.quk_lnk.wow.fadeInUp").remove();
-                    const listItems = document.querySelectorAll("#cssmenu > ul > li:not(:nth-child(1))") 
-                    listItems.forEach(listItem => listItem.remove());
-                    document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
-                    document.querySelector("#slide-panel").remove();
-                    window.ReactNativeWebView.postMessage("page_7");
-                    ;`,
-                );
-            }
-            else if (navState.url === 'https://vidyatcklmr.ac.in/page.php?sub_page=138') {
-                webViewRef.current.injectJavaScript(
-                    `document.querySelector("body > section.hed").remove();
-                    document.querySelector("body > section.quk_lnk.wow.fadeInUp").remove();
-                    const listItems = document.querySelectorAll("#cssmenu > ul > li:not(:nth-child(1))") 
-                    listItems.forEach(listItem => listItem.remove());
-                    document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
-                    document.querySelector("#slide-panel").remove();
-                    window.ReactNativeWebView.postMessage("page_7");
-                    ;`,
-                );
-            }
-            else if (navState.url === 'https://vidyatcklmr.ac.in/page.php?sub_page=143') {
-                webViewRef.current.injectJavaScript(
-                    `document.querySelector("body > section.hed").remove();
-                    document.querySelector("body > section.quk_lnk.wow.fadeInUp").remove();
-                    const listItems = document.querySelectorAll("#cssmenu > ul > li:not(:nth-child(1))") 
-                    listItems.forEach(listItem => listItem.remove());
-                    document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
-                    document.querySelector("#slide-panel").remove();
-                    window.ReactNativeWebView.postMessage("page_8");
-                    ;`,
-                );
-            }
-            else if (navState.url === 'https://vidyatcklmr.ac.in/setnew.php?sub=4') {
-                webViewRef.current.injectJavaScript(
-                    `document.querySelector("body > section.hed").remove();
-                    document.querySelector("body > section.quk_lnk.wow.fadeInUp").remove();
-                    const listItems = document.querySelectorAll("#cssmenu > ul > li:not(:nth-child(1))") 
-                    listItems.forEach(listItem => listItem.remove());
-                    document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
-                    document.querySelector("#slide-panel").remove();
-                    window.ReactNativeWebView.postMessage("page_8");
-                    ;`,
-                );
-            }
-            else if (navState.url === 'https://vidyatcklmr.ac.in/setnew.php?sub=8') {
-                webViewRef.current.injectJavaScript(
-                    `document.querySelector("body > section.hed").remove();
-                    document.querySelector("body > section.quk_lnk.wow.fadeInUp").remove();
-                    const listItems = document.querySelectorAll("#cssmenu > ul > li:not(:nth-child(1))") 
-                    listItems.forEach(listItem => listItem.remove());
-                    document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
-                    document.querySelector("#slide-panel").remove();
-                    window.ReactNativeWebView.postMessage("page_9");
-                    ;`,
-                );
-            }
-            else if (navState.url === 'https://www.vidyatcklmr.ac.in/page.php?page=102') {
-                webViewRef.current.injectJavaScript(
-                    `document.querySelector("body > section.hed").remove();
-                    document.querySelector("body > section.quk_lnk.wow.fadeInUp").remove();
-                    const listItems = document.querySelectorAll("#cssmenu > ul > li:not(:nth-child(1))") 
-                    listItems.forEach(listItem => listItem.remove());
-                    document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
-                    document.querySelector("#slide-panel").remove();
-                    window.ReactNativeWebView.postMessage("page_9");
-                    ;`,
-                );
-            }
-            else if (navState.url === 'https://vidyatcklmr.ac.in/setnew.php?sub=11') {
-                webViewRef.current.injectJavaScript(
-                    `document.querySelector("body > section.hed").remove();
-                    document.querySelector("body > section.quk_lnk.wow.fadeInUp").remove();
-                    const listItems = document.querySelectorAll("#cssmenu > ul > li:not(:nth-child(1))") 
-                    listItems.forEach(listItem => listItem.remove());
-                    document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
-                    document.querySelector("#slide-panel").remove();
-                    window.ReactNativeWebView.postMessage("page_10");
-                    ;`,
-                );
-            }
+           
 
             
         };

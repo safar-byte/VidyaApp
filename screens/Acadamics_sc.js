@@ -23,7 +23,8 @@ export default function Acadamics_sc() {
     }, []); // INITIALIZE ONLY ONCE
 
     const HandleBackPressed = () => {
-        if (webViewRef.current.canGoBack) {
+    
+        if (webViewRef.current.canGoBack ) {
             webViewRef.current.goBack();
             return true; // PREVENT DEFAULT BEHAVIOUR (EXITING THE APP)
         }
@@ -71,7 +72,9 @@ export default function Acadamics_sc() {
     };
     const onNavigationStateChange = (navState) => {
         setVisible(true);
+        if(isInternetReachable){}
         webViewRef.current.canGoBack = navState.canGoBack
+      
         if (navState.url === 'https://vidyatcklmr.ac.in/department_details.php?dep_id=2') {
             webViewRef.current.injectJavaScript(
                 `document.querySelector("#slide-panel").remove();

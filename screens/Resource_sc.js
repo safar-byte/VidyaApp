@@ -1,5 +1,5 @@
 import React,{useEffect,useRef,useState}  from "react";
-import { Text, View ,StyleSheet,ActivityIndicator,BackHandler,Platform,LogBox} from "react-native";
+import { Text, View ,StyleSheet,Modal,ActivityIndicator,BackHandler,Platform,LogBox} from "react-native";
 import { WebView } from 'react-native-webview';
 import OfflineNotice from "../components/OfflineNotice";
 import NetInfo from "@react-native-community/netinfo";
@@ -8,6 +8,7 @@ import SomethingWent from "../components/SomethingWent";
 export default function Resource_sc(){
   const webViewRef = useRef();
   const [canGoBack, setCanGoBack] = useState(false);
+  const [visible, setVisible] = useState(true);
 
   const onAndroidBackPress = () => {
     if (canGoBack && webViewRef.current) {
@@ -46,17 +47,12 @@ const injectJS = () => {
 
   webViewRef.current.injectJavaScript(`
 
-   document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div.col-lg-3.col-md-3.col-sm-12.col-xs-12.cont_L_bordr").remove();
-  document.querySelector("body > section.hed > div.menu.wow.fadeInRight > div > div > div.col-lg-10.col-md-12.col-sm-12.col-xs-12").remove();
-  document.querySelector("#slide-panel").remove();
-  document.querySelector("body > section.hed > div.insti.wow.fadeInLeft > div > div > div.col-lg-4.col-md-5.col-sm-12.col-xs-12").remove();
-  //document.querySelector("body > section.banner.wow.fadeIn").remove();
+  document.querySelector("body > section.hed").remove();
   document.querySelector("body > section.quk_lnk.wow.fadeInUp").remove();
-  document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
-  document.querySelector("body > section.cont_bg > div:nth-child(4) > div").remove();
-  //document.querySelector("body > section.cont_bg > div:nth-child(5)").remove();
-  //document.querySelector("body > section.cont_bg > div:nth-child(5) > div > div > div").remove();
-  "window.scrollTo(100,100);"
+  document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div.col-lg-3.col-md-3.col-sm-12.col-xs-12.cont_L_bordr").remove();
+
+  document.querySelector("#slide-panel").remove();
+  window.ReactNativeWebView.postMessage("Main_page");
     ; 
     `
     ,
@@ -65,8 +61,22 @@ const injectJS = () => {
     };
     const onNavigationStateChange = (navState) => {
       setCanGoBack(navState.canGoBack);
+      setVisible(true);
+      webViewRef.current.injectJavaScript(
+
+        `document.querySelector("#header-text-nav-container").remove();
+        document.querySelector("#secondary").remove();
+        document.querySelector("#colophon").remove();
+         ;`,
+      )
+    
     };
+    const onMessage = (event) => {
+
+      setVisible(false);
   
+  
+    }
 
     return(
         <>
@@ -76,7 +86,7 @@ const injectJS = () => {
         <WebView
         ref={webViewRef}
         onLoad={injectJS}
-        animationType='none'
+        onMessage={onMessage}
         onNavigationStateChange={onNavigationStateChange}
         style={styles.container}
         source={{ uri: 'https://www.vidyatcklmr.ac.in/page.php?page=92'}}
@@ -92,8 +102,16 @@ const injectJS = () => {
           />:<OfflineNotice/>
           
         }
+        <Modal visible={visible}>
+        <ActivityIndicator
+          color="black"
+          size="large"
+          style={styles.flexContainer}
+        />
+      </Modal>
       
 </View>
+
       </>
     );
 }

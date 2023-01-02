@@ -17,21 +17,32 @@ export default function Placement_sc() {
 
   useEffect(() => {
     if (Platform.OS === 'android') {
-      BackHandler.addEventListener('hardwareBackPress', HandleBackPressed);
-      return () => {
-        BackHandler.removeEventListener('hardwareBackPress', HandleBackPressed);
-      };
+        BackHandler.addEventListener('hardwareBackPress', HandleBackPressed);
+
+        return () => {
+            BackHandler.removeEventListener('hardwareBackPress', HandleBackPressed);
+        }
     }
-  }, []);
-  const [isInternetReachable, setisInternetReachable] = useState(false);
-  useEffect(() => {
+}, []); // INITIALIZE ONLY ONCE
+
+const HandleBackPressed = () => {
+    if (webViewRef.current.canGoBack) {
+        webViewRef.current.goBack();
+        return true; // PREVENT DEFAULT BEHAVIOUR (EXITING THE APP)
+    }
+    return false;
+}
+
+const [isInternetReachable, setisInternetReachable] = useState(false);
+useEffect(() => {
     const unsubscribe = NetInfo.addEventListener(state => {
-      setisInternetReachable(state.isInternetReachable);
-      setVisible(false);
+        setisInternetReachable(state.isInternetReachable);
+        setVisible(false);
     });
     return () => unsubscribe();
 
-  }, [])
+}, [])
+
 
   //remove all warn
   LogBox.ignoreAllLogs();
@@ -43,7 +54,7 @@ export default function Placement_sc() {
       `document.querySelector("#header-text-nav-container").remove();
       document.querySelector("#secondary").remove();
       document.querySelector("#colophon").remove();
-      window.ReactNativeWebView.postMessage("page_3");
+      window.ReactNativeWebView.postMessage("Main_page");
     
         ;
         
@@ -54,14 +65,7 @@ export default function Placement_sc() {
 
   };
 
-  const HandleBackPressed = () => {
-    if (webViewRef.current.canGoBack) {
-      webViewRef.current.goBack();
-      return true; // PREVENT DEFAULT BEHAVIOUR (EXITING THE APP)
-    }
-    return false;
 
-  }
 
   const onNavigationStateChange = (navState) => {
     setVisible(true);
@@ -69,11 +73,11 @@ export default function Placement_sc() {
 
       `document.querySelector("#primary > div.related-posts-wrapper").remove();
       document.querySelector("#primary > ul").remove();
-      window.ReactNativeWebView.postMessage("page_3");
+      window.ReactNativeWebView.postMessage("page_2");
        ;`,
     )
     webViewRef.current.canGoBack = navState.canGoBack
-  }
+  };
 
   const onMessage = (event) => {
 
@@ -91,6 +95,13 @@ export default function Placement_sc() {
           style={styles.container}
           source={{ uri: 'https://news.vidyaacademy.ac.in/tag/placements/' }}
           startInLoadingState={true}
+          renderLoading={() => (
+            <ActivityIndicator
+                color="black"
+                size="large"
+                style={styles.flexContainer}
+            />
+        )}
           onLoad={injectJS}
           onMessage={onMessage}
           onNavigationStateChange={onNavigationStateChange}

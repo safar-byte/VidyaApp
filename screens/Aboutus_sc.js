@@ -49,11 +49,11 @@ export default function Aboutus_sc() {
     const injectJS = () => {
         webViewRef.current.injectJavaScript(
             `document.querySelector("body > section.hed").remove();
-            const list = document.querySelector("#cssmenu > ul > li:nth-child(1)");
-            const otherElements = document.querySelectorAll("#cssmenu > ul");
-            otherElements.forEach(element => element.remove());
-            list.style.display = 'block';
-
+            document.querySelector("body > section.quk_lnk.wow.fadeInUp").remove();
+            const listItems = document.querySelectorAll("#cssmenu > ul > li:not(:nth-child(1))") 
+            listItems.forEach(listItem => listItem.remove());
+            document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
+            document.querySelector("#slide-panel").remove();
 
 
             window.ReactNativeWebView.postMessage("main_page");
@@ -63,32 +63,19 @@ export default function Aboutus_sc() {
 
 
         );
+    };
         const onNavigationStateChange = (navState) => {
+            webViewRef.current.canGoBack = navState.canGoBack
+            setVisible(true);
             if (navState.url === 'https://vidyatcklmr.ac.in/page.php?sub_page=4') {
                 webViewRef.current.injectJavaScript(
-                    `document.querySelector("body > section.hed > div.insti.wow.fadeInLeft > div > div > div.col-lg-4.col-md-5.col-sm-12.col-xs-12 > ul").remove();
-                    document.querySelector("#opener").remove();
-                    document.querySelector("body > section.quk_lnk.wow.fadeInUp > button").remove();
-                    document.querySelector("body > section.hed > div.menu.wow.fadeInRight > div > div > div.col-lg-10.col-md-12.col-sm-12.col-xs-12").remove();
-                    document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div.col-lg-3.col-md-3.col-sm-12.col-xs-12.cont_L_bordr > div > h1").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(2) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(3) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(4) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(5) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(6) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(7) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(8) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(9) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(10) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(11) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(12) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(13) > a").remove();
-                    document.querySelector("body > section.hed > div.container > div > div.col-lg-2.col-md-12.col-sm-12.col-xs-12 > section").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(1) > ul > li:nth-child(4) > a").remove();
+                    `document.querySelector("body > section.hed").remove();
+                    document.querySelector("body > section.quk_lnk.wow.fadeInUp").remove();
+                    const listItems = document.querySelectorAll("#cssmenu > ul > li:not(:nth-child(1))") 
+                    listItems.forEach(listItem => listItem.remove());
                     document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
-                    document.querySelector("body > section.cont_bg > div:nth-child(4) > div").remove();
-                    document.querySelector("#histats_counter_4964_canvas").remove();
-                    document.querySelector("body > section.cont_bg > div:nth-child(6) > div > div > div > p").remove();
+                    document.querySelector("#slide-panel").remove();
+        
                     window.ReactNativeWebView.postMessage("page_2");
                ; `,
 
@@ -96,329 +83,141 @@ export default function Aboutus_sc() {
             }
             else if (navState.url === 'https://vidyatcklmr.ac.in/vision_mission.php') {
                 webViewRef.current.injectJavaScript(
-                    `document.querySelector("body > section.hed > div.insti.wow.fadeInLeft > div > div > div.col-lg-4.col-md-5.col-sm-12.col-xs-12 > ul").remove();
-                    document.querySelector("#opener").remove();
-                    document.querySelector("body > section.quk_lnk.wow.fadeInUp > button").remove();
-                    document.querySelector("body > section.hed > div.menu.wow.fadeInRight > div > div > div.col-lg-10.col-md-12.col-sm-12.col-xs-12").remove();
-                    document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div.col-lg-3.col-md-3.col-sm-12.col-xs-12.cont_L_bordr > div > h1").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(2) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(3) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(4) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(5) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(6) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(7) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(8) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(9) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(10) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(11) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(12) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(13) > a").remove();
-                    document.querySelector("body > section.hed > div.container > div > div.col-lg-2.col-md-12.col-sm-12.col-xs-12 > section").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(1) > ul > li:nth-child(4) > a").remove();
+                    `document.querySelector("body > section.hed").remove();
+                    document.querySelector("body > section.quk_lnk.wow.fadeInUp").remove();
+                    const listItems = document.querySelectorAll("#cssmenu > ul > li:not(:nth-child(1))") 
+                    listItems.forEach(listItem => listItem.remove());
                     document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
-                    document.querySelector("body > section.cont_bg > div:nth-child(4) > div").remove();
-                    document.querySelector("#histats_counter_4964_canvas").remove();
-                    document.querySelector("body > section.cont_bg > div:nth-child(6) > div > div > div > p").remove();
+                    document.querySelector("#slide-panel").remove();
                     window.ReactNativeWebView.postMessage("page_3");
                     ;`,
                 );
             }
             else if (navState.url === 'https://vidyatcklmr.ac.in/page.php?sub_page=6') {
                 webViewRef.current.injectJavaScript(
-                    `document.querySelector("body > section.hed > div.insti.wow.fadeInLeft > div > div > div.col-lg-4.col-md-5.col-sm-12.col-xs-12 > ul").remove();
-                    document.querySelector("#opener").remove();
-                    document.querySelector("body > section.quk_lnk.wow.fadeInUp > button").remove();
-                    document.querySelector("body > section.hed > div.menu.wow.fadeInRight > div > div > div.col-lg-10.col-md-12.col-sm-12.col-xs-12").remove();
-                    document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div.col-lg-3.col-md-3.col-sm-12.col-xs-12.cont_L_bordr > div > h1").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(2) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(3) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(4) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(5) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(6) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(7) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(8) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(9) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(10) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(11) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(12) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(13) > a").remove();
-                    document.querySelector("body > section.hed > div.container > div > div.col-lg-2.col-md-12.col-sm-12.col-xs-12 > section").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(1) > ul > li:nth-child(4) > a").remove();
+                    `document.querySelector("body > section.hed").remove();
+                    document.querySelector("body > section.quk_lnk.wow.fadeInUp").remove();
+                    const listItems = document.querySelectorAll("#cssmenu > ul > li:not(:nth-child(1))") 
+                    listItems.forEach(listItem => listItem.remove());
                     document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
-                    document.querySelector("body > section.cont_bg > div:nth-child(4) > div").remove();
-                    document.querySelector("#histats_counter_4964_canvas").remove();
-                    document.querySelector("body > section.cont_bg > div:nth-child(6) > div > div > div > p").remove();
+                    document.querySelector("#slide-panel").remove();
                     window.ReactNativeWebView.postMessage("page_4");
                     ;`,
                 );
             }
             else if (navState.url === 'https://vidyatcklmr.ac.in/page.php?sub_page=135') {
                 webViewRef.current.injectJavaScript(
-                    `document.querySelector("body > section.hed > div.insti.wow.fadeInLeft > div > div > div.col-lg-4.col-md-5.col-sm-12.col-xs-12 > ul").remove();
-                    document.querySelector("#opener").remove();
-                    document.querySelector("body > section.quk_lnk.wow.fadeInUp > button").remove();
-                    document.querySelector("body > section.hed > div.menu.wow.fadeInRight > div > div > div.col-lg-10.col-md-12.col-sm-12.col-xs-12").remove();
-                    document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div.col-lg-3.col-md-3.col-sm-12.col-xs-12.cont_L_bordr > div > h1").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(2) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(3) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(4) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(5) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(6) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(7) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(8) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(9) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(10) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(11) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(12) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(13) > a").remove();
-                    document.querySelector("body > section.hed > div.container > div > div.col-lg-2.col-md-12.col-sm-12.col-xs-12 > section").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(1) > ul > li:nth-child(4) > a").remove();
+                    `document.querySelector("body > section.hed").remove();
+                    document.querySelector("body > section.quk_lnk.wow.fadeInUp").remove();
+                    const listItems = document.querySelectorAll("#cssmenu > ul > li:not(:nth-child(1))") 
+                    listItems.forEach(listItem => listItem.remove());
                     document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
-                    document.querySelector("body > section.cont_bg > div:nth-child(4) > div").remove();
-                    document.querySelector("#histats_counter_4964_canvas").remove();
-                    document.querySelector("body > section.cont_bg > div:nth-child(6) > div > div > div > p").remove();
+                    document.querySelector("#slide-panel").remove();
                     window.ReactNativeWebView.postMessage("page_5");
                     ;`,
                 );
             }
             else if (navState.url === 'https://vidyatcklmr.ac.in/page.php?sub_page=136') {
                 webViewRef.current.injectJavaScript(
-                    `document.querySelector("body > section.hed > div.insti.wow.fadeInLeft > div > div > div.col-lg-4.col-md-5.col-sm-12.col-xs-12 > ul").remove();
-                    document.querySelector("#opener").remove();
-                    document.querySelector("body > section.quk_lnk.wow.fadeInUp > button").remove();
-                    document.querySelector("body > section.hed > div.menu.wow.fadeInRight > div > div > div.col-lg-10.col-md-12.col-sm-12.col-xs-12").remove();
-                    document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div.col-lg-3.col-md-3.col-sm-12.col-xs-12.cont_L_bordr > div > h1").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(2) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(3) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(4) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(5) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(6) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(7) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(8) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(9) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(10) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(11) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(12) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(13) > a").remove();
-                    document.querySelector("body > section.hed > div.container > div > div.col-lg-2.col-md-12.col-sm-12.col-xs-12 > section").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(1) > ul > li:nth-child(4) > a").remove();
+                    `document.querySelector("body > section.hed").remove();
+                    document.querySelector("body > section.quk_lnk.wow.fadeInUp").remove();
+                    const listItems = document.querySelectorAll("#cssmenu > ul > li:not(:nth-child(1))") 
+                    listItems.forEach(listItem => listItem.remove());
                     document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
-                    document.querySelector("body > section.cont_bg > div:nth-child(4) > div").remove();
-                    document.querySelector("#histats_counter_4964_canvas").remove();
-                    document.querySelector("body > section.cont_bg > div:nth-child(6) > div > div > div > p").remove();
+                    document.querySelector("#slide-panel").remove();
                     window.ReactNativeWebView.postMessage("page_6");
                     ;`,
                 );
             }
             else if (navState.url === 'https://vidyatcklmr.ac.in/page.php?sub_page=137') {
                 webViewRef.current.injectJavaScript(
-                    `document.querySelector("body > section.hed > div.insti.wow.fadeInLeft > div > div > div.col-lg-4.col-md-5.col-sm-12.col-xs-12 > ul").remove();
-                    document.querySelector("#opener").remove();
-                    document.querySelector("body > section.quk_lnk.wow.fadeInUp > button").remove();
-                    document.querySelector("body > section.hed > div.menu.wow.fadeInRight > div > div > div.col-lg-10.col-md-12.col-sm-12.col-xs-12").remove();
-                    document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div.col-lg-3.col-md-3.col-sm-12.col-xs-12.cont_L_bordr > div > h1").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(2) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(3) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(4) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(5) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(6) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(7) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(8) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(9) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(10) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(11) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(12) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(13) > a").remove();
-                    document.querySelector("body > section.hed > div.container > div > div.col-lg-2.col-md-12.col-sm-12.col-xs-12 > section").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(1) > ul > li:nth-child(4) > a").remove();
+                    `document.querySelector("body > section.hed").remove();
+                    document.querySelector("body > section.quk_lnk.wow.fadeInUp").remove();
+                    const listItems = document.querySelectorAll("#cssmenu > ul > li:not(:nth-child(1))") 
+                    listItems.forEach(listItem => listItem.remove());
                     document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
-                    document.querySelector("body > section.cont_bg > div:nth-child(4) > div").remove();
-                    document.querySelector("#histats_counter_4964_canvas").remove();
-                    document.querySelector("body > section.cont_bg > div:nth-child(6) > div > div > div > p").remove();
+                    document.querySelector("#slide-panel").remove();
                     window.ReactNativeWebView.postMessage("page_7");
                     ;`,
                 );
             }
             else if (navState.url === 'https://vidyatcklmr.ac.in/page.php?sub_page=138') {
                 webViewRef.current.injectJavaScript(
-                    `document.querySelector("body > section.hed > div.insti.wow.fadeInLeft > div > div > div.col-lg-4.col-md-5.col-sm-12.col-xs-12 > ul").remove();
-                    document.querySelector("#opener").remove();
-                    document.querySelector("body > section.quk_lnk.wow.fadeInUp > button").remove();
-                    document.querySelector("body > section.hed > div.menu.wow.fadeInRight > div > div > div.col-lg-10.col-md-12.col-sm-12.col-xs-12").remove();
-                    document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div.col-lg-3.col-md-3.col-sm-12.col-xs-12.cont_L_bordr > div > h1").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(2) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(3) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(4) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(5) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(6) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(7) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(8) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(9) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(10) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(11) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(12) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(13) > a").remove();
-                    document.querySelector("body > section.hed > div.container > div > div.col-lg-2.col-md-12.col-sm-12.col-xs-12 > section").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(1) > ul > li:nth-child(4) > a").remove();
+                    `document.querySelector("body > section.hed").remove();
+                    document.querySelector("body > section.quk_lnk.wow.fadeInUp").remove();
+                    const listItems = document.querySelectorAll("#cssmenu > ul > li:not(:nth-child(1))") 
+                    listItems.forEach(listItem => listItem.remove());
                     document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
-                    document.querySelector("body > section.cont_bg > div:nth-child(4) > div").remove();
-                    document.querySelector("#histats_counter_4964_canvas").remove();
-                    document.querySelector("body > section.cont_bg > div:nth-child(6) > div > div > div > p").remove();
+                    document.querySelector("#slide-panel").remove();
                     window.ReactNativeWebView.postMessage("page_7");
                     ;`,
                 );
             }
             else if (navState.url === 'https://vidyatcklmr.ac.in/page.php?sub_page=143') {
                 webViewRef.current.injectJavaScript(
-                    `document.querySelector("body > section.hed > div.insti.wow.fadeInLeft > div > div > div.col-lg-4.col-md-5.col-sm-12.col-xs-12 > ul").remove();
-                    document.querySelector("#opener").remove();
-                    document.querySelector("body > section.quk_lnk.wow.fadeInUp > button").remove();
-                    document.querySelector("body > section.hed > div.menu.wow.fadeInRight > div > div > div.col-lg-10.col-md-12.col-sm-12.col-xs-12").remove();
-                    document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div.col-lg-3.col-md-3.col-sm-12.col-xs-12.cont_L_bordr > div > h1").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(2) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(3) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(4) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(5) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(6) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(7) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(8) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(9) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(10) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(11) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(12) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(13) > a").remove();
-                    document.querySelector("body > section.hed > div.container > div > div.col-lg-2.col-md-12.col-sm-12.col-xs-12 > section").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(1) > ul > li:nth-child(4) > a").remove();
+                    `document.querySelector("body > section.hed").remove();
+                    document.querySelector("body > section.quk_lnk.wow.fadeInUp").remove();
+                    const listItems = document.querySelectorAll("#cssmenu > ul > li:not(:nth-child(1))") 
+                    listItems.forEach(listItem => listItem.remove());
                     document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
-                    document.querySelector("body > section.cont_bg > div:nth-child(4) > div").remove();
-                    document.querySelector("#histats_counter_4964_canvas").remove();
-                    document.querySelector("body > section.cont_bg > div:nth-child(6) > div > div > div > p").remove();
+                    document.querySelector("#slide-panel").remove();
                     window.ReactNativeWebView.postMessage("page_8");
                     ;`,
                 );
             }
             else if (navState.url === 'https://vidyatcklmr.ac.in/setnew.php?sub=4') {
                 webViewRef.current.injectJavaScript(
-                    `document.querySelector("body > section.hed > div.insti.wow.fadeInLeft > div > div > div.col-lg-4.col-md-5.col-sm-12.col-xs-12 > ul").remove();
-                    document.querySelector("#opener").remove();
-                    document.querySelector("body > section.quk_lnk.wow.fadeInUp > button").remove();
-                    document.querySelector("body > section.hed > div.menu.wow.fadeInRight > div > div > div.col-lg-10.col-md-12.col-sm-12.col-xs-12").remove();
-                    document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div.col-lg-3.col-md-3.col-sm-12.col-xs-12.cont_L_bordr > div > h1").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(2) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(3) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(4) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(5) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(6) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(7) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(8) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(9) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(10) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(11) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(12) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(13) > a").remove();
-                    document.querySelector("body > section.hed > div.container > div > div.col-lg-2.col-md-12.col-sm-12.col-xs-12 > section").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(1) > ul > li:nth-child(4) > a").remove();
+                    `document.querySelector("body > section.hed").remove();
+                    document.querySelector("body > section.quk_lnk.wow.fadeInUp").remove();
+                    const listItems = document.querySelectorAll("#cssmenu > ul > li:not(:nth-child(1))") 
+                    listItems.forEach(listItem => listItem.remove());
                     document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
-                    document.querySelector("body > section.cont_bg > div:nth-child(4) > div").remove();
-                    document.querySelector("#histats_counter_4964_canvas").remove();
-                    document.querySelector("body > section.cont_bg > div:nth-child(6) > div > div > div > p").remove();
+                    document.querySelector("#slide-panel").remove();
                     window.ReactNativeWebView.postMessage("page_8");
                     ;`,
                 );
             }
             else if (navState.url === 'https://vidyatcklmr.ac.in/setnew.php?sub=8') {
                 webViewRef.current.injectJavaScript(
-                    `document.querySelector("body > section.hed > div.insti.wow.fadeInLeft > div > div > div.col-lg-4.col-md-5.col-sm-12.col-xs-12 > ul").remove();
-                    document.querySelector("#opener").remove();
-                    document.querySelector("body > section.quk_lnk.wow.fadeInUp > button").remove();
-                    document.querySelector("body > section.hed > div.menu.wow.fadeInRight > div > div > div.col-lg-10.col-md-12.col-sm-12.col-xs-12").remove();
-                    document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div.col-lg-3.col-md-3.col-sm-12.col-xs-12.cont_L_bordr > div > h1").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(2) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(3) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(4) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(5) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(6) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(7) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(8) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(9) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(10) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(11) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(12) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(13) > a").remove();
-                    document.querySelector("body > section.hed > div.container > div > div.col-lg-2.col-md-12.col-sm-12.col-xs-12 > section").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(1) > ul > li:nth-child(4) > a").remove();
+                    `document.querySelector("body > section.hed").remove();
+                    document.querySelector("body > section.quk_lnk.wow.fadeInUp").remove();
+                    const listItems = document.querySelectorAll("#cssmenu > ul > li:not(:nth-child(1))") 
+                    listItems.forEach(listItem => listItem.remove());
                     document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
-                    document.querySelector("body > section.cont_bg > div:nth-child(4) > div").remove();
-                    document.querySelector("#histats_counter_4964_canvas").remove();
-                    document.querySelector("body > section.cont_bg > div:nth-child(6) > div > div > div > p").remove();
+                    document.querySelector("#slide-panel").remove();
                     window.ReactNativeWebView.postMessage("page_9");
                     ;`,
                 );
             }
             else if (navState.url === 'https://www.vidyatcklmr.ac.in/page.php?page=102') {
                 webViewRef.current.injectJavaScript(
-                    `document.querySelector("body > section.hed > div.insti.wow.fadeInLeft > div > div > div.col-lg-4.col-md-5.col-sm-12.col-xs-12 > ul").remove();
-                    document.querySelector("#opener").remove();
-                    document.querySelector("body > section.quk_lnk.wow.fadeInUp > button").remove();
-                    document.querySelector("body > section.hed > div.menu.wow.fadeInRight > div > div > div.col-lg-10.col-md-12.col-sm-12.col-xs-12").remove();
-                    document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div.col-lg-3.col-md-3.col-sm-12.col-xs-12.cont_L_bordr > div > h1").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(2) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(3) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(4) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(5) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(6) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(7) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(8) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(9) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(10) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(11) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(12) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(13) > a").remove();
-                    document.querySelector("body > section.hed > div.container > div > div.col-lg-2.col-md-12.col-sm-12.col-xs-12 > section").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(1) > ul > li:nth-child(4) > a").remove();
+                    `document.querySelector("body > section.hed").remove();
+                    document.querySelector("body > section.quk_lnk.wow.fadeInUp").remove();
+                    const listItems = document.querySelectorAll("#cssmenu > ul > li:not(:nth-child(1))") 
+                    listItems.forEach(listItem => listItem.remove());
                     document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
-                    document.querySelector("body > section.cont_bg > div:nth-child(4) > div").remove();
-                    document.querySelector("#histats_counter_4964_canvas").remove();
-                    document.querySelector("body > section.cont_bg > div:nth-child(6) > div > div > div > p").remove();
+                    document.querySelector("#slide-panel").remove();
                     window.ReactNativeWebView.postMessage("page_9");
                     ;`,
                 );
             }
             else if (navState.url === 'https://vidyatcklmr.ac.in/setnew.php?sub=11') {
                 webViewRef.current.injectJavaScript(
-                    `document.querySelector("body > section.hed > div.insti.wow.fadeInLeft > div > div > div.col-lg-4.col-md-5.col-sm-12.col-xs-12 > ul").remove();
-                    document.querySelector("#opener").remove();
-                    document.querySelector("body > section.quk_lnk.wow.fadeInUp > button").remove();
-                    document.querySelector("body > section.hed > div.menu.wow.fadeInRight > div > div > div.col-lg-10.col-md-12.col-sm-12.col-xs-12").remove();
-                    document.querySelector("body > section.cont_bg > div:nth-child(1) > div > div > div.col-lg-3.col-md-3.col-sm-12.col-xs-12.cont_L_bordr > div > h1").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(2) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(3) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(4) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(5) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(6) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(7) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(8) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(9) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(10) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(11) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(12) > a").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(13) > a").remove();
-                    document.querySelector("body > section.hed > div.container > div > div.col-lg-2.col-md-12.col-sm-12.col-xs-12 > section").remove();
-                    document.querySelector("#cssmenu > ul > li:nth-child(1) > ul > li:nth-child(4) > a").remove();
+                    `document.querySelector("body > section.hed").remove();
+                    document.querySelector("body > section.quk_lnk.wow.fadeInUp").remove();
+                    const listItems = document.querySelectorAll("#cssmenu > ul > li:not(:nth-child(1))") 
+                    listItems.forEach(listItem => listItem.remove());
                     document.querySelector("body > section.cont_bg > div:nth-child(3)").remove();
-                    document.querySelector("body > section.cont_bg > div:nth-child(4) > div").remove();
-                    document.querySelector("#histats_counter_4964_canvas").remove();
-                    document.querySelector("body > section.cont_bg > div:nth-child(6) > div > div > div > p").remove();
+                    document.querySelector("#slide-panel").remove();
                     window.ReactNativeWebView.postMessage("page_10");
                     ;`,
                 );
             }
 
-            webViewRef.current.canGoBack = navState.canGoBack
+            
         };
 
 
-    };
     
     const onMessage = (event) => {
 
@@ -437,15 +236,10 @@ export default function Aboutus_sc() {
                     <WebView
                         ref={webViewRef}
                         style={styles.container}
-                        // injectedJavaScript={runFirst}
                         onLoad={injectJS}
-
+                        onNavigationStateChange={onNavigationStateChange}
                         source={{ uri: 'https://vidyatcklmr.ac.in/about_us.php' }}
-                        // onNavigationStateChange={onNavigationStateChange}
-
                         onMessage={onMessage}
-
-                        // injectedJavaScript={runFirst}
                         renderError={() => (<SomethingWent />)}
                         renderLoading={() => (
                             <ActivityIndicator

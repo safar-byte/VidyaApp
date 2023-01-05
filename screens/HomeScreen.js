@@ -16,9 +16,9 @@ export default function Home() {
                 <Image source={ require("../assets/vidyalogo.png") } />
                 </View>
                 <View style={{paddingBottom: 35,alignItems: "center"}}>
-                    <Text style={styles.text}>Vidya Acadamy</Text>
-                    <Text style={{color: "brown",fontWeight: "bold"}} >of</Text>
-                    <Text style={styles.text} >Science & Technology</Text>
+                    <Text style={styles.text}>Vidya Academy of Science</Text>
+                    <Text style={{color: "brown",fontWeight: "bold"}} >&</Text>
+                    <Text style={styles.text} >Technology Technical Campus</Text>
                 </View>          
                 <View style={styles.cntfiled}>
                     <View style={styles.contact}>

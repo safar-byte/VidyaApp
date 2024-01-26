@@ -1,11 +1,14 @@
 import React from "react";
-import { Text, StyleSheet, View,TouchableOpacity,Image, ListViewComponent } from "react-native";
+import { Text, StyleSheet, View, TouchableOpacity, Image, ListViewComponent } from "react-native";
 import Acadamics_btn from "../components/Acadamics_btn";
 import Placement_btn from '../components/Placement_btn';
 import Resource_btn from '../components/Resource_btn';
 import Admission_btn from "../components/Admission_btn";
+import Contact_btn from "../components/Contact_btn";
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from "@react-navigation/native";
+import Aboutus_btn from "../components/Aboutus_btn";
+import NewsnEvent_btn from "../components/NewsnEvent_btn";
 
 export default function Home() {
     const navigation = useNavigation();
@@ -13,38 +16,34 @@ export default function Home() {
         <View style={styles.container}>
             <View style={styles.tophalf}>
                 <View style={styles.img}>
-                <Image source={ require("../assets/vidyalogo.png") } />
+                    <Image source={require("../assets/vidyalogo.png")} />
                 </View>
-                <View style={{paddingBottom: 35,alignItems: "center"}}>
+                <View style={{ paddingBottom: 35, alignItems: "center" }}>
                     <Text style={styles.text}>Vidya Academy of Science</Text>
-                    <Text style={{color: "brown",fontWeight: "bold"}} >&</Text>
+                    <Text style={styles.text} >&</Text>
                     <Text style={styles.text} >Technology Technical Campus</Text>
-                </View>          
-                <View style={styles.cntfiled}>
-                    <View style={styles.contact}>
-                        <TouchableOpacity onPress={() => { navigation.navigate("Contact_page") }}>
-                            <Ionicons name="call-outline" size={30} style={styles.gap} />
-                            <Text style={{ marginHorizontal: 15 }}>contact</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => {  navigation.navigate("NewsnEvent_page") }}>
-                            <Ionicons name="newspaper-outline" size={30} style={{ marginLeft: 65 }} />
-                            <Text style={{ marginHorizontal: 15, paddingHorizontal: 14 }}>News and events</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => navigation.navigate("Aboutus_page")}>
-                            <Ionicons name="information-circle-outline" size={30} style={styles.gap} />
-                            <Text style={{ paddingHorizontal: 12 }}>About Us</Text>
-                        </TouchableOpacity>
-                    </View>
                 </View>
+
+               
+
             </View>
             <View style={styles.bottomhalf}>
-                <View style={styles.bh}>
+            <View style={styles.bh}>
+                    <Aboutus_btn />
                     <Acadamics_btn />
-                    <Placement_btn />
+                    <Admission_btn />
+
+
                 </View>
                 <View style={styles.bh}>
+
+                    <Contact_btn />
+                    <NewsnEvent_btn />
+                </View>
+                <View style={styles.bh}>
+                    <Placement_btn />
                     <Resource_btn />
-                    <Admission_btn />
+
                 </View>
             </View>
         </View>
@@ -53,50 +52,35 @@ export default function Home() {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-    },
-    cntfiled: {
-        alignContent: 'center',
-        alignItems: 'center',
-        width: '100%',
-        paddingTop: 30,
-        justifyContent: "flex-end",
-    },
-    tophalf: {
+        flex:1,
         backgroundColor: '#E5BA73',
+        alignItems: 'center',
+    },
+
+    tophalf: {
+       
         width: '100%',
-        height: '55%',
+        height: '45%',
         justifyContent: 'center',
         alignItems: 'center',
     },
     bottomhalf: {
-        height: '45%',
+        height: '55%',
         width: '100%',
         marginRight: 0,
-        backgroundColor: "#FAEAB1"
+     
     },
     img: {
-        paddingBottom: 22,
+       height:'60%',
         width: '100%',
         alignItems: "center",
     },
     bh: {
         flexDirection: 'row',
         width: '100%',
-        height: '40%',
+        height: '30%',
         justifyContent: 'space-evenly',
         alignItems: 'center',
-    },
-    contact: {
-        flexDirection: "row",
-        paddingHorizontal: 10,
-    },
-    gap: {
-        borderRadius: 40,
-        paddingHorizontal: 12,
-        marginHorizontal: 15,
     },
     text: {
         color: "brown",

@@ -19,11 +19,11 @@ function MainStackNavigator() {
         <Stack.Screen name="Home" component={Home} options={{headerTitle : () => <Header name='HOME'/>}}/>
         <Stack.Screen name="Acadamics_sc" component={Acadamics_sc} options={{headerTitle : () => <Header name='Acadamics'/>}}/>
         <Stack.Screen name="Admission_sc" component={Admission_sc} options={{headerTitle : () => <Header name='Admission'/>}}/>
-        <Stack.Screen name="Placement_page" component={Placement_sc} options={{headerTitle : () => <Header name='Placement'/>}}/>
-        <Stack.Screen name='Aboutus_page' component={Aboutus_sc} options={{headerTitle : () => <Header name='About Us'/>}}/>
-        <Stack.Screen name='Resource_page' component={Resource_sc} options={{headerTitle : () => <Header name='Resources'/>}}/>
-        <Stack.Screen name='Contact_page' component={Contact_sc} options={{headerTitle : () => <Header name='Contact us'/>}}/>
-        <Stack.Screen name='NewsnEvent_page' component={NewsandEvent_sc} options={{headerTitle : () => <Header name='News and Events'/>}}/>
+        <Stack.Screen name="Placement_sc" component={Placement_sc} options={{headerTitle : () => <Header name='Placement'/>}}/>
+        <Stack.Screen name='Aboutus_sc' component={Aboutus_sc} options={{headerTitle : () => <Header name='About Us'/>}}/>
+        <Stack.Screen name='Resource_sc' component={Resource_sc} options={{headerTitle : () => <Header name='Resources'/>}}/>
+        <Stack.Screen name='Contact_sc' component={Contact_sc} options={{headerTitle : () => <Header name='Contact us'/>}}/>
+        <Stack.Screen name='NewsnEvent_sc' component={NewsandEvent_sc} options={{headerTitle : () => <Header name='News and Events'/>}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

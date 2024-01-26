@@ -6,13 +6,12 @@ import { useNavigation } from "@react-navigation/native";
 export default function Placement_btn(){
     const navigation = useNavigation();
     return(
-        <TouchableOpacity onPress={() => navigation.navigate("Placement_page")}>
+        <TouchableOpacity onPress={() => navigation.navigate("Placement_sc")}>
             <View style={{alignItems: "center"}}>
                 <Ionicons name="business-outline" size={45} />
-                <Text>placement</Text>
+                <Text>Placement</Text>
             </View>
         </TouchableOpacity>
     );
 }
 
-const styles = StyleSheet;

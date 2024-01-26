@@ -6,7 +6,7 @@ import { useNavigation } from "@react-navigation/native";
 export default function Resource_btn(){
     const navigation = useNavigation();
     return(
-        <TouchableOpacity onPress={() => navigation.navigate("Resource_page")}>
+        <TouchableOpacity onPress={() => navigation.navigate("Resource_sc")}>
             <View style={{alignItems: "center"}} >
                 <Ionicons name="library-outline" size={45}/>
                 <Text>Resources</Text>

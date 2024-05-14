@@ -24,7 +24,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/appicon.png",
         "backgroundColor": "#E5BA73"
-      }
+      },
+      "package": "com.anonymous.vast"
     },
     "web": {
       "favicon": "./assets/appicon.png"

@@ -16,7 +16,7 @@ function MainStackNavigator() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName='Home' >
-        <Stack.Screen name="Home" component={Home} options={{headerTitle : () => <Header name='HOME'/>}}/>
+      <Stack.Screen name="Home" component={Home} options={{headerTitle: '', headerTransparent: true}}/>
         <Stack.Screen name="Acadamics_sc" component={Acadamics_sc} options={{headerTitle : () => <Header name='Acadamics'/>}}/>
         <Stack.Screen name="Admission_sc" component={Admission_sc} options={{headerTitle : () => <Header name='Admission'/>}}/>
         <Stack.Screen name="Placement_page" component={Placement_sc} options={{headerTitle : () => <Header name='Placement'/>}}/>

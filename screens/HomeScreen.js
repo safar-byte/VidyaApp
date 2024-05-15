@@ -8,13 +8,22 @@ export default function Home() {
     return (
         <View style={styles.container}>
             <View style={styles.tophalf}>
-                <View style={styles.img}>
+                {/* <View style={styles.img}>
                     <Image source={require("../assets/vidyalogo.png")} />
                 </View>
                 <View style={{ paddingBottom: 35, alignItems: "center" }}>
                     <Text style={styles.text}>Vidya Academy of Science</Text>
                     <Text style={{ color: "brown", fontWeight: "bold" }} >&</Text>
                     <Text style={styles.text} >Technology Technical Campus</Text>
+                </View> */}
+                <View style={styles.img}>
+                    <Image source={require("../assets/vidyalogo.png")} />
+                </View>
+                <View style={{ paddingBottom: 35, alignItems: "center" }}>
+                    <Text style={{ fontSize: 24, fontWeight: "bold" }}>Vidya Academy of Science</Text>
+                    <Text style={{ color: "brown", fontSize: 24, fontWeight: "bold" }}>
+                        & Technology Technical Campus
+                    </Text>
                 </View>
                 <View style={styles.cntfiled}>
                     <View style={styles.contact}>

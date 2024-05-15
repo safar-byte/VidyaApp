@@ -19,58 +19,65 @@ export default function Home() {
                 <View style={styles.img}>
                     <Image source={require("../assets/vidyalogo.png")} />
                 </View>
-                <View style={{ paddingBottom: 35, alignItems: "center" }}>
-                    <Text style={{ fontSize: 24, fontWeight: "bold" }}>Vidya Academy of Science</Text>
+                <View style={{ alignItems: "center" }}>
+                    <Text style={{ color: "brown", fontSize: 24, fontWeight: "bold" }}>Vidya Academy of Science</Text>
                     <Text style={{ color: "brown", fontSize: 24, fontWeight: "bold" }}>
                         & Technology Technical Campus
                     </Text>
                 </View>
                 <View style={styles.cntfiled}>
-                    <View style={styles.contact}>
+                    <View style={styles.bh}>
                         <TouchableOpacity onPress={() => navigation.navigate("Aboutus_page")}>
-                            <Ionicons name="information-circle-outline" size={30} style={styles.gap} />
-                            <Text style={{ paddingHorizontal: 12 }}>About Us</Text>
+                            <View style={{ alignItems: "center" }} >
+                                <Ionicons name="information-circle-outline" size={45}  />
+                                <Text >About Us</Text>
+                            </View>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => { navigation.navigate("Contact_page") }}>
-                            <Ionicons name="call-outline" size={30} style={styles.gap} />
-                            <Text style={{ marginHorizontal: 15 }}>contact</Text>
+                        <TouchableOpacity onPress={() => navigation.navigate("Acadamics_sc")}>
+                            <View style={{ alignItems: "center" }} >
+                                <Ionicons name="school-outline" size={45}  />
+                                <Text> Acadamics </Text>
+                            </View>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => { navigation.navigate("NewsnEvent_page") }}>
-                            <Ionicons name="newspaper-outline" size={30} style={{ marginLeft: 65 }} />
-                            <Text style={{ marginHorizontal: 15, paddingHorizontal: 14 }}>News and events</Text>
+                        <TouchableOpacity onPress={() => navigation.navigate("Admission_sc")}>
+                            <View style={{ alignItems: "center" }} >
+                                <Ionicons name="person-add-outline" size={45}  />
+                                <Text>Admission</Text>
+                            </View>
                         </TouchableOpacity>
-
                     </View>
                 </View>
             </View>
             <View style={styles.bottomhalf}>
                 <View style={styles.bh}>
-                    <TouchableOpacity onPress={() => navigation.navigate("Acadamics_sc")}>
+                    <TouchableOpacity onPress={() => { navigation.navigate("Contact_page") }}>
                         <View style={{ alignItems: "center" }}>
-                            <Ionicons name="school-outline" size={45} />
-                            <Text> Acadamics </Text>
+                            <Ionicons name="call-outline" size={45} />
+                            <Text >contact</Text>
                         </View>
                     </TouchableOpacity>
+                    <TouchableOpacity onPress={() => { navigation.navigate("NewsnEvent_page") }}>
+                        <View style={{ alignItems: "center" }}>
+                            <Ionicons name="newspaper-outline" size={45} />
+                            <Text >News and events</Text>
+                        </View>
+                    </TouchableOpacity>
+
+                </View>
+                <View style={styles.bh}>
                     <TouchableOpacity onPress={() => navigation.navigate("Placement_page")}>
                         <View style={{ alignItems: "center" }}>
                             <Ionicons name="business-outline" size={45} />
                             <Text>placement</Text>
                         </View>
                     </TouchableOpacity>
-                </View>
-                <View style={styles.bh}>
                     <TouchableOpacity onPress={() => navigation.navigate("Resource_page")}>
                         <View style={{ alignItems: "center" }} >
                             <Ionicons name="library-outline" size={45} />
                             <Text>Resources</Text>
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => navigation.navigate("Admission_sc")}>
-                        <View style={{ alignItems: "center" }} >
-                            <Ionicons name="person-add-outline" size={45} />
-                            <Text>Admission</Text>
-                        </View>
-                    </TouchableOpacity>
+
                 </View>
             </View>
         </View>
@@ -93,12 +100,12 @@ const styles = StyleSheet.create({
     tophalf: {
         backgroundColor: '#E5BA73',
         width: '100%',
-        height: '55%',
+        height: '65%',
         justifyContent: 'center',
         alignItems: 'center',
     },
     bottomhalf: {
-        height: '45%',
+        height: '35%',
         width: '100%',
         marginRight: 0,
         backgroundColor: "#E5BA73"

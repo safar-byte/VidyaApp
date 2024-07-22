@@ -29,11 +29,3 @@ VidyaApp is a public application designed to review the institution VIDYA ACADEM
 ## Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request.
-
-## License
-
-This project is licensed under the MIT License.
-
----
-
-Feel free to modify this as needed!

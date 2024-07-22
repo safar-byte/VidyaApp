@@ -1,7 +1,3 @@
-Here's a generated README for the VidyaApp repository:
-
----
-
 # VidyaApp
 
 VidyaApp is a public application designed to review the institution VIDYA ACADEMY OF SCIENCE AND TECHNOLOGY TECHNICAL CAMPUS located at Kilimanoor, Trivandrum (main branch location: Thrissur).
